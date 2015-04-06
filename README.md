@@ -1,11 +1,12 @@
-# Snapt
-
-[snapt.io][snapt]
+# [Snapt][snapt]
 
 [snapt]: http://www.snapt.io
 
+Snapt is a clone of Instagram built on Rails and Backbone.
+
 ## Minimum Viable Product
-Snapt is a clone of Instagram built on Rails and Backbone. Users can:
+
+Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
