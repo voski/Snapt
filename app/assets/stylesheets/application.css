@@ -20,6 +20,7 @@ body {
 .logo {
   width: 800px;
   margin: 0 auto;
+  transform: translateX(-5%);
 }
 
 .logo > img {
