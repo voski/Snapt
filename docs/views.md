@@ -10,13 +10,13 @@
 ![user-show]
 
 ## Photo Show
-![post-show]
+<!-- ![post-show] -->
 
 ## Photo Form
-![post-form]
+<!-- ![post-form] -->
 
 ## Search Results
-![search-results]
+<!-- ![search-results] -->
 
 [new-session]: ./wireframes/new_session.png
 [feed-show]: ./wireframes/feed_show.png
