@@ -32,24 +32,24 @@ Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
+### Phase 1: User Authentication, Photo Uploading (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
+App Academy. By the end of this phase, users will be able to create upload photos using
+a simple form in a Rails view. The most important part of this phase will
 be pushing the app to Heroku and ensuring that everything works before moving on
 to phase 2.
 
 [Details][phase-one]
 
 ### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
+I will add API routes to serve photo and comment data as JSON, then add Backbone
 models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
+phase, users will be able to comment photos and view both comments and photos, all
 inside a single Backbone app.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
+<!-- ### Phase 3: Editing and Displaying Posts (~2 days)
 I plan to use third-party libraries to add functionality to the `PostForm` and
 `PostShow` views in this phase. First I'll need to add a Markdown editor to the
 `PostForm`, and make sure that the Markdown is properly escaped and formatted in
@@ -73,7 +73,7 @@ Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
 and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
 collections, but they will fetch from the new `search` routes.
 
-[Details][phase-five]
+[Details][phase-five] -->
 
 ### Bonus Features (TBD)
 - [ ] "Like" button and counter for posts
