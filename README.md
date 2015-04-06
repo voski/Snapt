@@ -76,7 +76,7 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five] -->
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
+<!-- - [ ] "Like" button and counter for posts
 - [ ] Custom blog urls
 - [ ] Pagination/infinite scroll
 - [ ] Activity history (e.g. likes, reblogs, taggings)
@@ -84,7 +84,7 @@ collections, but they will fetch from the new `search` routes.
 - [ ] Reblogging
 - [ ] Multiple sessions/session management
 - [ ] User avatars
-- [ ] Typeahead search bar
+- [ ] Typeahead search bar -->
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
