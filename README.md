@@ -1,23 +1,25 @@
-# Flux-capacitr
+# Snapt
 
-[Heroku link][heroku]
+[snapt.io][snapt]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[snapt]: http://www.snapt.io
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+Snapt is a clone of Instagram built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Upload photos
+- [ ] View other users
+- [ ] Follow users
+- [ ] Add comments to photos
+- [ ] Add tags to photos
+- [ ] Like photos
+- [ ] Tag users in photos/comments
+- [ ] View a feed of followed users
+- [ ] Search for photos by tag
 - [ ] Search for posts by tag
 
 ## Design Docs
@@ -88,4 +90,3 @@ collections, but they will fetch from the new `search` routes.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-

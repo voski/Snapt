@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def index
-    render text: 'hello'
+    render :index
   end
 end
