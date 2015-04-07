@@ -1,28 +1,44 @@
 # Schema Information
 
-## blogs
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
-title       | string    | not null
+## Photos
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+author_id      | integer   | not null, foreign key (references users)
+title          | string    | not null
 
-## followings
+## Followings
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
+followee_id | integer   | not null, foreign key (references users)
 follower_id | integer   | not null, foreign key (references users)
 
-## posts
+## Comments
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+author_id      | integer   | not null, foreign key (references users)
+photo_id       | integer   | not null, foreign key (references photos)
+body           | string    | not null, max length 240
+
+## Mentions
+column name | data type | details
+------------------|-----------|-----------------------
+id                | integer   | not null, primary key
+user_id           | integer   | not null, foreign key (references users)
+comment_id        | integer   | not null, foreign key (references comments)
+
+
+## Photos
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
+url         | string    | not null, unique
 title       | string    | not null
-body        | string    |
 
-## tags
+## Tags
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -32,7 +48,7 @@ label       | string    | not null, unique
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
+photo_id    | integer   | not null, foreign key (references posts)
 tag_id      | integer   | not null, foreign key (references tags)
 
 ## users
@@ -40,6 +56,7 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 email           | string    | not null, unique
+username        | boolean   | not null
 password_digest | string    | not null
 session_token   | string    | not null, unique
-
+private         | boolean   | not null
