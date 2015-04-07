@@ -1,0 +1,15 @@
+<% action = @user.persisted? ? "Sign In" : "Sign Up" %>
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <% unless @user.persisted? %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  <% end %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit action %>
+<% end %>
