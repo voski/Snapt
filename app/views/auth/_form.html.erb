@@ -1,14 +1,16 @@
 <h1><%= action %></h1>
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <% if action == "Sign Up"  %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+<form class="auth_form" action="<%= path %>" method="post">
+  <%= auth_token %>
+  <label for="username">Username</label>
+  <input type="text" name="user[username]" value="<%= @user.username %>">
+
+  <% if path == users_url %>
+    <label for="email">Email</label>
+    <input type="text" name="user[username]" value="<%= @user.email %>">
   <% end %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <label for="password">Password</label>
+  <input type="text" name="user[username]" value="<%= @user.username %>">
 
-  <%= f.submit action %>
-<% end %>
+  <input type="submit" value="<%= action %>">
+</form>
