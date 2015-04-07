@@ -16,7 +16,6 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
 url         | string    | not null, unique
-title       | string    | not null
 
 ## Likes
 column name | data type | details
@@ -32,7 +31,7 @@ id             | integer   | not null, primary key
 author_id      | integer   | not null, foreign key (references users)
 photo_id       | integer   | not null, foreign key (references photos)
 body           | string    | not null, max length 240
-               |           | index [:author_id, photo_id], unique
+title          | boolean   | not null
 
 ## Followings
 column name | data type | details
