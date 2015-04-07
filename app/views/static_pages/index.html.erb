@@ -1,4 +1,7 @@
 <div class="logo">
   <%= image_tag "Snapt-logo-white.jpg" %>
-  <%= current_user.username if current_user %>
+  <% if current_user %>
+    <h3><%= current_user.username %></h3>
+    <%= sign_out_btn  %>
+  <% end %>
 </div>
