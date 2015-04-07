@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#  email           :string           not null
+#  private         :boolean          default(FALSE), not null
+#
+
 class User < ActiveRecord::Base
   validates :username, :password_digest, :email, presence: true
   validates :session_token, presence: true, uniqueness: true
@@ -5,6 +19,8 @@ class User < ActiveRecord::Base
   validates :private, inclusion: [true, false]
   after_initialize :ensure_session_token
 
+  has_many :photos, foreign_key: :author_id
+  
   attr_reader :password
 
   def initialize(params = nil)
