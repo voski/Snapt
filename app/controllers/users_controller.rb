@@ -10,8 +10,8 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to static_pages_url
     else
-      flash.errors = @user.errors.full_messages
-      render new
+      flash.now[:errors] = @user.errors.full_messages
+      render :new
     end
   end
 
