@@ -1,6 +1,6 @@
 # Schema Information
 
-## users
+## Users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
@@ -18,6 +18,13 @@ author_id   | integer   | not null, foreign key (references users)
 url         | string    | not null, unique
 title       | string    | not null
 
+## Likes
+column name | data type | details
+------------------|-----------|-----------------------
+id                | integer   | not null, primary key
+liker_id          | integer   | not null, foreign key (references users)
+photo_id          | integer   | not null, foreign key (references photo)
+                  |           | index [:liker_id, photo_id], unique
 ## Comments
 column name    | data type | details
 ---------------|-----------|-----------------------
@@ -25,7 +32,7 @@ id             | integer   | not null, primary key
 author_id      | integer   | not null, foreign key (references users)
 photo_id       | integer   | not null, foreign key (references photos)
 body           | string    | not null, max length 240
-add_index [:author_id, photo_id], unique
+               |           | index [:author_id, photo_id], unique
 
 ## Followings
 column name | data type | details
@@ -33,7 +40,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 followee_id | integer   | not null, foreign key (references users)
 follower_id | integer   | not null, foreign key (references users)
-add_index [:folowee_id, follower_id], unique
+            |           | index [:folowee_id, follower_id], unique
 
 ## Mentions
 column name | data type | details
@@ -41,8 +48,7 @@ column name | data type | details
 id                | integer   | not null, primary key
 user_id           | integer   | not null, foreign key (references users)
 comment_id        | integer   | not null, foreign key (references comments)
-add_index [:user_id, comment_id], unique
-
+                  |           | index [:user_id, comment_id], unique
 
 ## Tags
 column name | data type | details
@@ -56,4 +62,4 @@ column name | data type | details
 id          | integer   | not null, primary key
 photo_id    | integer   | not null, foreign key (references posts)
 tag_id      | integer   | not null, foreign key (references tags)
-add_index [:photo_id, tag_id], unique
+            |           | index [:photo_id, tag_id], unique
