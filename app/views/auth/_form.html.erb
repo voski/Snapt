@@ -1,9 +1,8 @@
-<% action = @user.persisted? ? "Sign In" : "Sign Up" %>
+<h1><%= action %></h1>
 <%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
-
-  <% unless @user.persisted? %>
+  <% if action == "Sign Up"  %>
     <%= f.label :email %>
     <%= f.text_field :email %>
   <% end %>
