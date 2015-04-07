@@ -13,12 +13,18 @@
  *= require_tree .
  *= require_self
  */
+@viewport{
+     zoom: 1.0;
+     width: device-width;
+}
+
 body {
   background-color: cornflowerblue
 }
 
 .logo {
-  width: 800px;
+  min-width: 320px;
+  width: 40%;
   margin: 0 auto;
 }
 
