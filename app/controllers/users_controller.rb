@@ -7,9 +7,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-
+      @user.reset_token!
+      fail
+    end
   end
 
   def user_params
     params.require(:user).permit(:username, :password, :email, :private)
+  end
 end

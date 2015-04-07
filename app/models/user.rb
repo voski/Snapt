@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  def initialize
+  def initialize(params)
     super
     @private = false
   end
