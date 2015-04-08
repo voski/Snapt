@@ -13,4 +13,9 @@
   <input type="password" name="user[password]">
 
   <input type="submit" value="<%= action %>">
+
+  <% if path == session_url %>
+    <%= button_to "Sign up", new_user_url, method: :get %>
+  <% end %>
+
 </form>

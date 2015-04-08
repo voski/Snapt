@@ -22,12 +22,12 @@ body {
   background-color: cornflowerblue
 }
 
-.logo {
+
+.new-session > img {
+  width: 100%
+}
+.new-session {
   min-width: 320px;
   width: 40%;
   margin: 0 auto;
-}
-
-.logo > img {
-  width: 100%
 }
