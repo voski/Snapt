@@ -26,6 +26,7 @@ body {
   min-width: 320px;
   width: 40%;
   margin: 0 auto;
+  max-width: 500px;
 }
 
 .logo > img {
