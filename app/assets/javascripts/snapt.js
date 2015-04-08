@@ -4,7 +4,8 @@ window.Snapt = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new Snapt.Routers.router({ $rootEl: $('#main') });
+    Backbone.history.start();
   }
 };
 
