@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: snapt
+  api_key: '448935781446396'
+  api_secret: smHhColvSQw2DZV1tLreSp4hUN8
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: snapt
+  api_key: '448935781446396'
+  api_secret: smHhColvSQw2DZV1tLreSp4hUN8
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: snapt
+  api_key: '448935781446396'
+  api_secret: smHhColvSQw2DZV1tLreSp4hUN8
+  enhance_image_tag: true
+  static_image_support: false
