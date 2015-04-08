@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
-      redirect_to static_pages_url
+      redirect_to root_url
     else
       flash[:errors] = ['Invalid Credentials']
       redirect_to new_session_url

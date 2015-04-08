@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to static_pages_url
+      redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
