@@ -4,7 +4,7 @@ window.Snapt = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new Snapt.Routers.router({ $rootEl: $('#main') });
+    new Snapt.Routers.Router({ $el: $('#main') });
     Backbone.history.start();
   }
 };
