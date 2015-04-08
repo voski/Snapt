@@ -2,21 +2,31 @@
   <%= image_tag "Snapt-logo-white.jpg" %>
   <form class="auth_form" action="<%= path %>" method="post">
     <%= auth_token %>
-    <input type="text"
+
+    <input
+      type="text"
       name="user[username]"
       value="<%= @user.username %>"
-      placeholder="username">
+      placeholder="username"
+    >
 
     <% if path == users_url %>
-      <label for="email">Email</label>
-      <input type="text" name="user[email]" value="<%= @user.email %>">
+      <input
+        type="text"
+        name="user[email]"
+        placeholder='Email'
+        value="<%= @user.email %>"
+      >
     <% end %>
 
-    <input type="password"
+    <input
+      type="password"
       name="user[password]"
-      placeholder="password">
+      placeholder="password"
+    >
 
     <input type="submit" value="<%= action %>">
+
     <% if path == session_url %>
       <a href="<%= new_user_url %>">
         <button type="button">New User</button>
