@@ -1,21 +1,21 @@
 Snapt.Models.User = Backbone.Model.extend({
   urlRoot: '/api/users',
 
-  parse: function (payload) {
-    if (payload.photos) {
-      this.photos.set(payload.photos, { parse: true })
-      delete payload.photos
+  parse: function (resp) {
+    if (resp.photos) {
+      this.photos().set(resp.photos, { parse: true });
+      delete resp.photos;
     }
-
-    return payload;
+    return resp;
   },
 
   photos: function () {
     if (!this._photos) {
-      this.photos = new Snapt.Collections.Photos([], author: this)
+      this._photos = new Snapt.Collections.Photos(
+        [], { author: this }
+      );
     }
 
-    return this._photos
-  },
-
+    return this._photos;
+  }
 })

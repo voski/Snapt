@@ -17,4 +17,9 @@ class Api::PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:author_id, :url)
   end
+
+  def index
+    @photos = current_user.photos
+    render json: @photos
+  end
 end
