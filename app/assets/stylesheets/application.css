@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: cornflowerblue
+  background-color: #aaa
 }
 
 .logo {
@@ -31,4 +31,8 @@ body {
 
 .logo > img {
   width: 100%
+}
+
+.auth-form > ul  {
+  list-style: none;
 }
