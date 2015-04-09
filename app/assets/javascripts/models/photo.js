@@ -3,5 +3,9 @@ Snapt.Models.Photo = Backbone.Model.extend({
 
   parse: function (resp) {
     return resp;
+  },
+
+  isAuthor: function() {
+    return Snapt.currentUser.id === this.get('author_id');
   }
 });

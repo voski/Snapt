@@ -1,2 +1,4 @@
 <img src="<%= photo.escape('url')  %>">
-<button type="button" class="delete-photo" >Delete</button>
+<% if (photo.isAuthor()) { %>
+  <button type="button" class="delete-photo" >Delete</button>
+<% } %>
