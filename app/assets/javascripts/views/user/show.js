@@ -11,9 +11,12 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
    this.listenTo(this.model, 'sync', this.render);
    this.listenTo(this.collection, 'add', this.addPhotoView);
    this.listenTo(this.collection, 'remove', this.removePhotoView);
-   this.widget = new Snapt.uploadWidget(
-     { collection: this.collection }
-   );
+
+   if (this.model.id === Snapt.currentUser.id) {
+     this.widget = new Snapt.uploadWidget(
+       { collection: this.collection }
+     );
+   }
 
    this.collection.each(function (photo) {
      this.addPhotoView(photo);
