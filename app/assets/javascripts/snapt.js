@@ -5,6 +5,7 @@ window.Snapt = {
   Routers: {},
   initialize: function() {
     new Snapt.Routers.Router({ $el: $('#main') });
+    new Snapt.Views.Nav({ $el: $('#header')}).render();
     Backbone.history.start();
   }
 };
