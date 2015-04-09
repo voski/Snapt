@@ -9,7 +9,7 @@ Snapt.Collections.Users = Backbone.Collection.extend({
     if (model) {
       model.fetch()
     } else {
-      model = new Snapt.Models.User({{ id: id }})
+      model = new Snapt.Models.User({id: id })
       model.fetch({
         success: function () {
           collection.add(model)

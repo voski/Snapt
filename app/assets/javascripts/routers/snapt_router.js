@@ -9,13 +9,9 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   showUser : function (id) {
-    var user = new Snapt.Models.User.get({id: id}) // this is broken need to make a global collection of users
-    debugger
-    user.fetch({
-      success: function () {
-        user.photos().fetch();
-      }
-    });
+    Snapt.Collections.users.fetch()
+
+    var user = Snapt.Collections.users.getOrFetch(id);
     var view = new Snapt.Views.UserShow(
       { model: user }
     );
