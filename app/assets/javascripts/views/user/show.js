@@ -33,7 +33,6 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
    var content = this.template({ user: this.model });
    this.$el.html(content);
    this.attachSubviews();
-   this.addWidget();
 
    return this;
  },
@@ -46,6 +45,9 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
  },
 
  openWidget: function () {
+   if (!this.widget) {
+     this.addWidget();
+   }
    this.widget.open();
  },
 });
