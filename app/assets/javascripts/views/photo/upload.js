@@ -1,7 +1,4 @@
 Snapt.Views.Upload = Backbone.CompositeView.extend({
-  events: {
-    'click #uploadz' : 'openWidget'
-  },
 
   initialize: function (options) {
     cloudinary.setCloudName('snapt');
@@ -10,6 +7,7 @@ Snapt.Views.Upload = Backbone.CompositeView.extend({
       this.collection = options.collection
     }
 
+    var that = this;
     this.widget = cloudinary.createUploadWidget(
       {
         upload_preset: 'goImgGo', // default settings for uploads
@@ -20,14 +18,23 @@ Snapt.Views.Upload = Backbone.CompositeView.extend({
           console.log('something went wrong')
         } else {
           _(result).each(function (photo) {
-            console.log(photo)
+
+            var newPhoto = new Snapt.Models.Photo({
+              url: photo.url,
+              author_id: Snapt.currentUser.id
+            })
+            newPhoto.save([], {
+              success: function () {
+                that.collection.add(newPhoto, { merge: true });
+                newPhoto.fetch();
+                that.collection.fetch();
+              }
+            })
           })
         }
       }
     );
   },
 
-  openWidget: function () {
-    this.widgetView.widget.open();
-  }
+
 });

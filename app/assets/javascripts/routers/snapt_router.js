@@ -9,7 +9,11 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   showFeed : function () {
-    Snapt.currentUser.fetch();
+    Snapt.currentUser.fetch({
+      success: function () {
+        Snapt.currentUser.photos().fetch();
+      }
+    });
     var view = new Snapt.Views.UserFeed(
       { model: Snapt.currentUser }
     );

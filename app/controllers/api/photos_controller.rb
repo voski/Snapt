@@ -1,17 +1,17 @@
 class Api::PhotosController < ApplicationController
 
   def create
-    fail
     @photo = Photo.new(photo_params)
     if @photo.save
-      render json: photo
+      render json: @photo
     else
-      render json: photo.errors.full_messages, status: 422
+      render json: @photo.errors.full_messages, status: 422
     end
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.find(params[:id]);
+    render json: @photo
   end
 
 

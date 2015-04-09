@@ -2,9 +2,15 @@ Snapt.Views.UserFeed = Backbone.CompositeView.extend({
 
  template: JST["user/feed"],
 
+ events: {
+   'click #uploadz' : 'openWidget'
+ },
+
  initialize: function () {
+   this.collection = this.model.photos();
    this.listenTo(this.model, 'sync', this.render);
-   this.widgetView = new Snapt.Views.Upload();
+   this.listenTo(this.collection, 'add', this.render);
+   this.widgetView = new Snapt.Views.Upload({collection: this.collection});
  },
 
  render: function () {
@@ -12,13 +18,16 @@ Snapt.Views.UserFeed = Backbone.CompositeView.extend({
    this.$el.html(content);
    var $feedPhotos = this.$('.feed-photos');
 
-   this.model.photos().each(function (photo) {
+   this.collection.each(function (photo) {
      var view = new Snapt.Views.PhotoShow({ model: photo })
-     $feedPhotos.append(view.render().$el)
+     $feedPhotos.prepend(view.render().$el)
    });
 
    return this;
  },
 
+ openWidget: function () {
+   this.widgetView.widget.open();
+ }
 
 })
