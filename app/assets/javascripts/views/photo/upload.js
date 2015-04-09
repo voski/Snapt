@@ -21,7 +21,8 @@ Snapt.Views.Upload = Backbone.CompositeView.extend({
 
             var newPhoto = new Snapt.Models.Photo({
               url: photo.url,
-              author_id: Snapt.currentUser.id
+              author_id: Snapt.currentUser.id,
+              public_id: photo.public_id
             })
             newPhoto.save([], {
               success: function () {
