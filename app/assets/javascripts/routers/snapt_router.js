@@ -1,7 +1,6 @@
 Snapt.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$el = options.$el;
-    this.$el.html('go router go');
   },
 
   routes : {

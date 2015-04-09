@@ -26,4 +26,9 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless signed_in?
   end
 
+  def require_signed_out!
+    redirect_to root_url anchor: "users/#{@current_user.id}" if signed_in?
+  end
+
+
 end
