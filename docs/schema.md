@@ -15,6 +15,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
+public_id   | string    | not null, used for cloudinary
 url         | string    | not null, unique
 
 ## Likes
