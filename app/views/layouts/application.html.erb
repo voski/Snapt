@@ -10,11 +10,7 @@
 </script>
 </head>
 <body>
-<div class='flash'>
-  <% flash[:errors] && flash[:errors].each do |error| %>
-    <%= error %>
-  <% end %>
-</div>
+<%= render partial: 'layouts/errors' %>
 <%= yield %>
 
 </body>

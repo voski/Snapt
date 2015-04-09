@@ -38,9 +38,15 @@
       <% if path == session_url %>
         <li>
           <a href="<%= new_user_url %>">
-            <button type="button">New User</button>
+            <button type="button">New User Sign Up</button>
           </a>
         </li>
+      <% else %>
+      <li>
+        <a href="<%= new_session_url %>">
+          <button type="button">Log In</button>
+        </a>
+      </li>
       <% end %>
     </ul>
   </form>
