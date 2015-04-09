@@ -1,6 +1,7 @@
 class Api::PhotosController < ApplicationController
 
   def create
+    fail
     @photo = Photo.new(photo_params)
     if @photo.save
       render json: photo

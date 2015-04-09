@@ -15,6 +15,7 @@
 //= require underscore
 //= require backbone
 //= require snapt
+//= require cloudinary
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models
