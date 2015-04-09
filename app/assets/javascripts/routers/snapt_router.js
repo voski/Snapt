@@ -5,17 +5,19 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   routes : {
-    'f' : 'showFeed'
+    'users/:id' : 'showUser'
   },
 
-  showFeed : function () {
-    Snapt.currentUser.fetch({
+  showUser : function (id) {
+    var user = new Snapt.Models.User.get({id: id}) // this is broken need to make a global collection of users
+    debugger
+    user.fetch({
       success: function () {
-        Snapt.currentUser.photos().fetch();
+        user.photos().fetch();
       }
     });
-    var view = new Snapt.Views.UserFeed(
-      { model: Snapt.currentUser }
+    var view = new Snapt.Views.UserShow(
+      { model: user }
     );
     this._swapView(view);
   },

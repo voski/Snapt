@@ -6,6 +6,7 @@ window.Snapt = {
   initialize: function() {
     new Snapt.Routers.Router({ $el: $('#main') });
     Backbone.history.start();
+    Snapt.users = new Snapt.Collections.Users();
   }
 };
 
