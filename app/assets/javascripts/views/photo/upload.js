@@ -11,12 +11,14 @@ Snapt.Views.Upload = Backbone.CompositeView.extend({
     this.widget = cloudinary.createUploadWidget(
       {
         upload_preset: 'goImgGo', // default settings for uploads
-        context: { author_id:1 }
+        context: 'caption=author_id|alt=' + Snapt.currentUser.id,
+        tags: ["lol", "yay"]
       },
       function(error, result) { // callback
         if (error) {
           console.log('something went wrong')
         } else {
+          console.log(result)
           _(result).each(function (photo) {
 
             var newPhoto = new Snapt.Models.Photo({
