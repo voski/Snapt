@@ -29,6 +29,7 @@ class Api::PhotosController < ApplicationController
     if @photo
       Cloudinary::Uploader.destroy(@photo.public_id)
       @photo.destroy
+      render json: @photo
     else
       render json: @photo.errors, status: 422
     end

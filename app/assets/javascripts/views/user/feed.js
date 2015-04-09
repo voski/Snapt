@@ -9,7 +9,7 @@ Snapt.Views.UserFeed = Backbone.CompositeView.extend({
  initialize: function () {
    this.collection = this.model.photos();
    this.listenTo(this.model, 'sync', this.render);
-   this.listenTo(this.collection, 'add', this.render);
+   this.listenTo(this.collection, 'add remove', this.render);
    this.widgetView = new Snapt.Views.Upload({collection: this.collection});
  },
 
