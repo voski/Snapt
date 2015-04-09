@@ -10,9 +10,9 @@ Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Upload photos
+- [x] Create accounts
+- [x] Create sessions (log in)
+- [x] Upload photos
 - [ ] View other users
 - [ ] Follow users
 - [ ] Add comments to photos
