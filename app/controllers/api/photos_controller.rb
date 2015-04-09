@@ -26,6 +26,9 @@ class Api::PhotosController < ApplicationController
 
   def destroy
     @photo = Photo.find(params[:id]);
+
+    render json: @photo, status: 403 unless @photo.author = current_user
+
     if @photo
       Cloudinary::Uploader.destroy(@photo.public_id)
       @photo.destroy

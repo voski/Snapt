@@ -11,13 +11,6 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
    this.listenTo(this.model, 'sync', this.render);
    this.listenTo(this.collection, 'add', this.addPhotoView);
    this.listenTo(this.collection, 'remove', this.removePhotoView);
-
-   if (this.model.id === Snapt.currentUser.id) {
-     this.widget = new Snapt.uploadWidget(
-       { collection: this.collection }
-     );
-   }
-
    this.collection.each(function (photo) {
      this.addPhotoView(photo);
    }, this);
@@ -40,11 +33,19 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
    var content = this.template({ user: this.model });
    this.$el.html(content);
    this.attachSubviews();
+   this.addWidget();
 
    return this;
  },
 
+ addWidget: function () {
+   if (this.model.id === Snapt.currentUser.id) {
+   this.widget = new Snapt.uploadWidget(
+     { collection: this.collection }
+   )};
+ },
+
  openWidget: function () {
    this.widget.open();
- }
-})
+ },
+});
