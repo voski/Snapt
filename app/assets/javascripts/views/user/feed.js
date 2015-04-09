@@ -4,6 +4,7 @@ Snapt.Views.UserFeed = Backbone.CompositeView.extend({
 
  initialize: function () {
    this.listenTo(this.model, 'sync', this.render);
+   this.widgetView = new Snapt.Views.Upload();
  },
 
  render: function () {
@@ -15,7 +16,9 @@ Snapt.Views.UserFeed = Backbone.CompositeView.extend({
      var view = new Snapt.Views.PhotoShow({ model: photo })
      $feedPhotos.append(view.render().$el)
    });
-   
+
    return this;
- }
+ },
+
+
 })
