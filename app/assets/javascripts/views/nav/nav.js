@@ -2,7 +2,13 @@ Snapt.Views.Nav = Backbone.CompositeView.extend({
   template: JST['nav/nav'],
 
   events: {
-    'click .sign-out-btn' : 'signOut'
+    'click .sign-out-btn' : 'signOut',
+    'input .user-search' : 'search'
+  },
+
+  search: function (e) {
+    var query = $(e.currentTarget).val()
+    console.log(query)
   },
 
   initialize: function (options) {
