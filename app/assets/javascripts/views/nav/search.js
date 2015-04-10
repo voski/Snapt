@@ -3,7 +3,7 @@ Snapt.Views.UserSearch = Backbone.CompositeView.extend({
 
   events: {
     'input .user-search' : 'handleInput',
-    'click a' : 'clearInput'
+    'click a' : 'clearInput',
   },
 
   initialize: function (options) {
