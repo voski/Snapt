@@ -1,5 +1,7 @@
 Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
+
   template: JST['photo/show'],
+  spinner: JST['photo/spinner'],
 
   events: {
     'click .delete-photo': 'destroyPhoto'
@@ -8,7 +10,9 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
   tagName: 'li',
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    var spinner = new Spinner().spin();
+    this.$el.html(this.spinner());
+    this.el.appendChild(spinner.el);
   },
 
   render: function () {
@@ -23,4 +27,7 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
     this.model.destroy();
   },
 
+  setSpinner: function () {
+
+  }
 });
