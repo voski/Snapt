@@ -28,11 +28,17 @@ Snapt.Views.Nav = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.$el = options.$el
     this.listenTo(this.model, 'sync', this.render);
+    debugger
+    var searchView = new Snapt.Views.UserSearch();
+    this.addSubview('#search-box', searchView)
   },
+
+
 
   render: function () {
     var content = this.template();
     this.$el.html(content)
+    this.attachSubviews();
     return this;
   },
 
