@@ -1,5 +1,9 @@
 <ul class='nav'>
  <li>
-   sick nav bar
+   <a href="#users/<%= Snapt.currentUser.get('id') %>" ><%= Snapt.currentUser.escape('username')%>'s profile</a>
  </li>
+ <li>
+   <button type="button" class="sign-out-btn">Sign Out</button>
+ </li>
+
 </ul>

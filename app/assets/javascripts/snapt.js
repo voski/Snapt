@@ -4,12 +4,14 @@ window.Snapt = {
   Views: {},
   Routers: {},
   initialize: function() {
+
     new Snapt.Routers.Router({ $el: $('#main') });
-    new Snapt.Views.Nav({ $el: $('#header')}).render();
+
+    new Snapt.Views.Nav({
+      $el: $('#header'),
+      model: Snapt.currentUser
+    }).render();
+
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Snapt.initialize();
-});
