@@ -17,5 +17,9 @@ Snapt.Models.User = Backbone.Model.extend({
     }
 
     return this._photos;
-  }
+  },
+
+  authorized: function () {
+    return this.id == Snapt.currentUser.id
+  },
 })
