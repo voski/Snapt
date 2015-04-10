@@ -13,6 +13,13 @@ Snapt.Collections.Users = Backbone.Collection.extend({
       model.fetch({
         success: function () {
           collection.add(model)
+        },
+
+        error: function ( model, response, options ) {
+          Backbone.history.navigate(
+            'users/' + Snapt.currentUser.get('id'),
+            {trigger: true}
+          )
         }
       });
     }
