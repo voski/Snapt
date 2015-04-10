@@ -10,12 +10,17 @@ Snapt.Models.Photo = Backbone.Model.extend({
   },
 
   cloudinaryUrl: function(options) {
+    var params = {
+      width: 610,
+      height: 610,
+      crop: 'fill'
+    }
+    
     return (
       $.cloudinary.image(
         this.escape('public_id'),
-        { width: 510, height: 510, crop: 'fill' }
+        params
       )[0].outerHTML
     )
-
   }
 });
