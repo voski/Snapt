@@ -6,6 +6,11 @@ Snapt.Models.User = Backbone.Model.extend({
       this.photos().set(resp.photos, { parse: true });
       delete resp.photos;
     }
+
+    if (resp.followees) {
+      this.followees().set(resp.followees, { parse: true });
+      delete resp.followees;
+    }
     return resp;
   },
 
@@ -17,6 +22,16 @@ Snapt.Models.User = Backbone.Model.extend({
     }
 
     return this._photos;
+  },
+
+  followees: function () {
+    if (!this._followees) {
+      this._followees = new Snapt.Collections.Users(
+        [], { follower: this }
+      )
+    }
+
+    return this._followees
   },
 
   authorized: function () {

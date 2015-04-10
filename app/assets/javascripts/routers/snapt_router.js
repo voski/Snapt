@@ -8,9 +8,8 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   showUser : function (id) {
-    Snapt.Collections.users.fetch()
-
-    var user = Snapt.Collections.users.getOrFetch(id);
+    var user = new Snapt.Models.User({ id: id });
+    user.fetch();
     var view = new Snapt.Views.UserShow(
       { model: user }
     );

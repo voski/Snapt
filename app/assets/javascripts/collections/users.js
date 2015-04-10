@@ -28,4 +28,4 @@ Snapt.Collections.Users = Backbone.Collection.extend({
   }
 });
 
-Snapt.Collections.users = new Snapt.Collections.Users();
+// Snapt.Collections.users = new Snapt.Collections.Users();

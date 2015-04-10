@@ -34,7 +34,7 @@ photo_id       | integer   | not null, foreign key (references photos)
 body           | string    | not null, max length 240
 title          | boolean   | not null
 
-## Followings
+## follows
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
