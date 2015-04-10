@@ -14,6 +14,7 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
    this.collection.each(function (photo) {
      this.addPhotoView(photo);
    }, this);
+
  },
 
  addPhotoView: function (photo) {
@@ -50,4 +51,6 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
    }
    this.widget.open();
  },
+
+
 });
