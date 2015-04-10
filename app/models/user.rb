@@ -62,6 +62,10 @@ class User < ActiveRecord::Base
     out_follows.exists?(followee_id: user.id)
   end
 
+  def follower?(user)
+    self.in_follows.exists?(follower_id: user.id)
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64

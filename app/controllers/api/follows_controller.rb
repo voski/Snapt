@@ -2,9 +2,14 @@ class Api::FollowsController < ApplicationController
   before_action :require_signed_in!
 
   def create
-    @follow = current_user.out_follows.create!(followee_id: params[:user_id])
+    follower = User.find(params[:user_id])
+    @follow = current_user.out_follows.new(followee_id: follower.id)
 
-    render json: @follow
+    if @follow.save
+      render json: @follow
+    else
+      render json: @follow.errors.full_messages
+    end
   end
 
   def destroy
