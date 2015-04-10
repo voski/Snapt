@@ -39,6 +39,7 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
  },
 
  addWidget: function () {
+
    if (this.model.id === Snapt.currentUser.id) {
    this.widget = new Snapt.uploadWidget(
      { collection: this.collection }
@@ -51,6 +52,4 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
    }
    this.widget.open();
  },
-
-
 });

@@ -3,7 +3,12 @@ Snapt.Views.Nav = Backbone.CompositeView.extend({
 
   events: {
     'click .sign-out-btn' : 'signOut',
-    'input .user-search' : 'handleInput'
+    'input .user-search' : 'handleInput',
+    'click .search-results > a' : 'clearInput'
+  },
+
+  clearInput: function (e) {
+    console.log(e.currentTarget)
   },
 
   handleInput: function (e) {
@@ -36,7 +41,10 @@ Snapt.Views.Nav = Backbone.CompositeView.extend({
     $results.empty();
     _(response).each(function (user) {
       var $content = $('<li>')
-      $content.html(user.username)
+      var $link = $('<a>')
+      $link.attr('href', '#users/' + user.id)
+      $link.html(user.username)
+      $content.html($link)
       $results.append($content)
     })
   },
