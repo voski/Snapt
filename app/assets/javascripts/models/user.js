@@ -37,4 +37,15 @@ Snapt.Models.User = Backbone.Model.extend({
   authorized: function () {
     return this.id == Snapt.currentUser.id
   },
+
+  _isFollowee: function (user) {
+    var result = false;
+    Snapt.currentUser.followees().each(function (followee) {
+      if (followee.id == user.id) {
+        result = true;
+      }
+    }, this)
+
+    return result;
+  }
 })

@@ -2,7 +2,14 @@
 <% if ( user.authorized() ) { %>
   <button type="button" id='widget' >Upload a Picture bruh</button>
 <% } else { %>
-  <button type="button" id="follow">Follow</button>
+
+  <% if (Snapt.currentUser._isFollowee(user)) { %>
+    <button type="button" class="unfollow">Unfollow</button>
+  <% } else { %>
+    <button type="button" class="follow">Follow</button>
+  <% } %>
 <% } %>
+
+
 <ul class='feed-photos'>
 </ul>

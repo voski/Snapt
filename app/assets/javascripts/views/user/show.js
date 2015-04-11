@@ -1,10 +1,13 @@
 Snapt.Views.UserShow = Backbone.CompositeView.extend({
 
  template: JST["user/show"],
+  followTemplate: function () {
+ },
 
  events: {
    'click #widget' : 'openWidget',
-   'click #follow' : 'toggleFollow'
+   'click .follow' : 'follow',
+   'click .unfollow' : 'unfollow'
  },
 
  initialize: function () {
@@ -18,17 +21,29 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
 
  },
 
- toggleFollow: function (e) {
-   var followeeId = $(e.currentTarget)
+ follow: function (e) {
    $.ajax({
      url:"api/users/" + this.model.id + '/follow',
      dataType: 'json',
      method: 'POST',
      success: function (resp) {
-       console.log(resp)
-     }
+       Snapt.currentUser.followees().add(this.model);
+       this.render();
+     }.bind(this)
    })
-   console.log(this.model.attributes)
+ },
+
+ unfollow: function () {
+   $.ajax({
+     url:"api/users/" + this.model.id + '/follow',
+     dataType: 'json',
+     method: 'DELETE',
+     success: function (resp) {
+       Snapt.currentUser.followees().remove(this.model);
+       this.render();
+
+     }.bind(this)
+   })
  },
 
  addPhotoView: function (photo) {
@@ -53,7 +68,6 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
  },
 
  addWidget: function () {
-
    if (this.model.id === Snapt.currentUser.id) {
    this.widget = new Snapt.uploadWidget(
      { collection: this.collection }
