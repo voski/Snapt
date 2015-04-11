@@ -4,11 +4,21 @@ Snapt.Views.UserSearch = Backbone.CompositeView.extend({
   events: {
     'input .user-search' : 'handleInput',
     'click a' : 'clearInput',
+    'submit ' : 'search'
+
   },
 
   initialize: function (options) {
     // this.collection = options.collection;
     // this.$el = options.$el;
+  },
+
+  search: function (e) {
+    e.preventDefault();
+    var $el = $(e.currentTarget);
+    var target = $el.find('.search-results li:first-child a');
+    Backbone.history.navigate(target.attr('href'), { trigger: true });
+    this.render();
   },
 
   render: function () {

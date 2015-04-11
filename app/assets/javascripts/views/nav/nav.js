@@ -19,8 +19,6 @@ Snapt.Views.Nav = Backbone.CompositeView.extend({
     return this;
   },
 
-
-
   signOut: function () {
     $.ajax({
       url: "/session",
