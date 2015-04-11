@@ -6,9 +6,10 @@
       <li>
         <input
           type="text"
+          class="username"
           name="user[username]"
           value="<%= @user.username %>"
-          placeholder="username"
+          placeholder="Username"
         >
       </li>
 
@@ -25,29 +26,48 @@
 
       <li>
         <input
+          class="password"
           type="password"
           name="user[password]"
-          placeholder="password"
+          placeholder="Password"
         >
       </li>
 
       <li>
-        <input type="submit" value="<%= action %>">
+        <input
+          class="submit-btn"
+          type="submit"
+          value="<%= action %>"
+        >
       </li>
 
       <% if path == session_url %>
         <li>
           <a href="<%= new_user_url %>">
-            <button type="button">New User Sign Up</button>
+            <button type="button">New Users</button>
           </a>
+        </li>
+        <li>
+            <button type="button"
+              class="guest-login">
+                Guest Account
+            </button>
         </li>
       <% else %>
       <li>
         <a href="<%= new_session_url %>">
-          <button type="button">Log In</button>
+          <button type="button">returning users</button>
         </a>
       </li>
       <% end %>
     </ul>
   </form>
 </div>
+<script>
+  var loginGuest = function (e) {
+    $('.username').val('voski');
+    $('.password').val('password')
+    $('.submit-btn').click();
+  }
+  $('.guest-login').on('click', loginGuest)
+</script>

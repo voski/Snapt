@@ -33,6 +33,23 @@ body {
   max-width: 500px;
 }
 
+.logo  ul {
+  list-style: none;
+}
+
+.logo input {
+  text-align: center;
+}
+
+.logo * {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.logo li:last-child {
+  margin-top: 5px;
+}
+
 .logo > img {
   width: 100%;
   background-image: none;

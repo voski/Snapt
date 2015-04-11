@@ -11,6 +11,11 @@ Snapt.Models.User = Backbone.Model.extend({
       this.followees().set(resp.followees, { parse: true });
       delete resp.followees;
     }
+
+    if (resp.followers) {
+      this.followers().set(resp.followers, { parse: true })
+    }
+
     return resp;
   },
 
@@ -31,14 +36,24 @@ Snapt.Models.User = Backbone.Model.extend({
       )
     }
 
-    return this._followees
+    return this._followees;
+  },
+
+  followers: function ()  {
+    if (!this._followers) {
+      this._followers = new Snapt.Collections.Users(
+        [], { followee: this }
+      )
+    }
+
+    return this._followers;
   },
 
   authorized: function () {
     return this.id == Snapt.currentUser.id
   },
 
-  _isFollowee: function (user) {
+  _isFollowing: function (user) {
     var result = false;
     Snapt.currentUser.followees().each(function (followee) {
       if (followee.id == user.id) {
