@@ -7,6 +7,7 @@
 #  url        :string           not null
 #  created_at :datetime
 #  updated_at :datetime
+#  public_id  :string           not null
 #
 
 class Photo < ActiveRecord::Base
