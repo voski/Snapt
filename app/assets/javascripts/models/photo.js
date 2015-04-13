@@ -13,7 +13,7 @@ Snapt.Models.Photo = Backbone.Model.extend({
     var params = {
       width: 800,
       height: 600,
-      crop: 'fill'
+      crop: 'fill',
     }
 
     return (

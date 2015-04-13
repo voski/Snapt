@@ -8,7 +8,6 @@ Snapt.uploadWidget = function (options) {
     tags: ["lol", "yay"],
     multiple: false,
     theme: 'minimal',
-
   };
 
   var uploadCallback = function (error, result) {

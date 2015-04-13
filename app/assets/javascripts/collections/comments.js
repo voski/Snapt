@@ -1,5 +1,7 @@
 Snapt.Collections.Comments = Backbone.Collection.extend({
-  url: function () {
+  model: Snapt.Models.Comment,
 
+  url: function () {
+    return 'api/photos/' + this.photo.id + '/comments'
   }
 });
