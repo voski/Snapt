@@ -2,65 +2,50 @@
   <%= image_tag "Snapt-logo-blue.png" %>
   <form class="auth_form" action="<%= path %>" method="post">
     <%= auth_token %>
-    <ul>
-      <li>
         <input
           type="text"
-          class="username"
+          class="username form-control"
           name="user[username]"
           value="<%= @user.username %>"
           placeholder="Username"
         >
-      </li>
 
       <% if path == users_url %>
-        <li>
           <input
             type="text"
+            class="form-control"
             name="user[email]"
             placeholder='Email'
             value="<%= @user.email %>"
           >
-        </li>
       <% end %>
 
-      <li>
         <input
-          class="password"
+          class="password form-control"
           type="password"
           name="user[password]"
           placeholder="Password"
         >
-      </li>
 
-      <li>
         <input
-          class="submit-btn"
+          class="submit-btn btn btn-primary btn-lg"
           type="submit"
           value="<%= action %>"
         >
-      </li>
 
       <% if path == session_url %>
-        <li>
           <a href="<%= new_user_url %>">
-            <button type="button">New Users</button>
+            <button type="button" class="btn btn btn-primary btn-lg">New Users</button>
           </a>
-        </li>
-        <li>
             <button type="button"
-              class="guest-login">
+              class="guest-login btn btn btn-success btn-lg">
                 Guest Account
             </button>
-        </li>
       <% else %>
-      <li>
         <a href="<%= new_session_url %>">
-          <button type="button">returning users</button>
+          <button type="button" class="btn btn btn-primary btn-lg">Returning Users</button>
         </a>
-      </li>
       <% end %>
-    </ul>
   </form>
 </div>
 <script>
