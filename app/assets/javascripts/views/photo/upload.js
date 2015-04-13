@@ -32,6 +32,7 @@ Snapt.uploadWidget = function (options) {
   this.widget = cloudinary.createUploadWidget(
     presets, uploadCallback.bind(this)
   ),
+  
   this.open = function () {
     this.widget.open();
   }
