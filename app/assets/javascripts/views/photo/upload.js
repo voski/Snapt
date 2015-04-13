@@ -7,7 +7,7 @@ Snapt.uploadWidget = function (options) {
     context: {caption: 'author_id', alt: Snapt.currentUser.id},
     tags: ["lol", "yay"],
     multiple: false,
-    theme: 'minimal'
+    theme: 'minimal',
 
   };
 
