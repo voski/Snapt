@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
+
     resources :users, only: [:show, :index] do
       get "search", on: :collection
 
@@ -12,7 +13,11 @@ Rails.application.routes.draw do
       resource :follow, only: [:create, :destroy]
     end
 
-    resources :photos, only: [:create, :destroy, :show, :update]
+    resources :photos, only: [:create, :destroy, :show, :update] do
+      resources :comments, only: [:index]
+    end
+
+    resources :comments, only: [:create, :destroy, :show]
   end
 
 end

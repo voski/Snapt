@@ -6,7 +6,9 @@ Snapt.uploadWidget = function (options) {
     upload_preset: 'goImgGo', // default settings for uploads
     context: {caption: 'author_id', alt: Snapt.currentUser.id},
     tags: ["lol", "yay"],
-    multiple: false
+    multiple: false,
+    theme: 'minimal'
+
   };
 
   var uploadCallback = function (error, result) {
@@ -32,7 +34,7 @@ Snapt.uploadWidget = function (options) {
   this.widget = cloudinary.createUploadWidget(
     presets, uploadCallback.bind(this)
   ),
-  
+
   this.open = function () {
     this.widget.open();
   }
