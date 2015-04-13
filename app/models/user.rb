@@ -20,11 +20,12 @@ class User < ActiveRecord::Base
     :email,
     presence: true, uniqueness: true
   )
-  
+
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :private, inclusion: [true, false]
   after_initialize :ensure_session_token
 
+  has_many :comments, foreign_key: :author_id
   has_many :photos, foreign_key: :author_id
   has_many :in_follows, class_name: "Follow", foreign_key: "followee_id"
   has_many :out_follows, class_name: "Follow", foreign_key: "follower_id"
