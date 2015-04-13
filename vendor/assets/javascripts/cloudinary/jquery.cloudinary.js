@@ -726,6 +726,7 @@
   };
 
   $.cloudinary.unsigned_upload_tag = function(upload_preset, upload_params, options) {
-    return $('<input/>').attr({type: "file", name: "file", accept: "image/*", capture: "camera" }).unsigned_cloudinary_upload(upload_preset, upload_params, options);
+    return $('<input/>').attr({type: "file", name: "file" }).unsigned_cloudinary_upload(upload_preset, upload_params, options);
+
   };
 }));

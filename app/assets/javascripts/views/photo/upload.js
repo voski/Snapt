@@ -5,7 +5,8 @@ Snapt.uploadWidget = function (options) {
   var presets = {
     upload_preset: 'goImgGo', // default settings for uploads
     context: {caption: 'author_id', alt: Snapt.currentUser.id},
-    tags: ["lol", "yay"]
+    tags: ["lol", "yay"],
+    multiple: false
   };
 
   var uploadCallback = function (error, result) {
