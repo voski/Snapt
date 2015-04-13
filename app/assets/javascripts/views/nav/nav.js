@@ -1,7 +1,5 @@
 Snapt.Views.Nav = Backbone.CompositeView.extend({
   template: JST['nav/nav'],
-  tagName: 'nav',
-  className: 'nav navbar-header',
   events: {
     'click .sign-out-btn' : 'signOut',
   },

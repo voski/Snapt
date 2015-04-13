@@ -24,7 +24,8 @@ Snapt.Views.UserSearch = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-
+    this.$dropdown = this.$('div.dropdown');
+    this.$results = this.$('.search-results')
     return this;
   },
 
@@ -44,20 +45,27 @@ Snapt.Views.UserSearch = Backbone.CompositeView.extend({
 
   clearInput: function (e) {
     this.$('.user-search').val('');
-    this.$('.search-results').empty();
+    this.$results.empty();
+    this.render();
   },
 
   renderResults: function (response) {
-    var $results = this.$('.search-results');
+    var $results = this.$results;
     $results.empty();
-    _(response).each(function (user) {
-      var $content = $('<li>')
-      var $link = $('<a>')
-      $link.attr('href', '#users/' + user.id)
-      $link.html(user.username)
-      $content.html($link)
-      $results.append($content)
-    })
+    
+    if (response.length === 0) {
+      this.$dropdown.removeClass('open')
+    } else {
+      this.$dropdown.addClass('open')
+      _(response).each(function (user) {
+        var $content = $('<li>')
+        var $link = $('<a>')
+        $link.attr('href', '#users/' + user.id)
+        $link.html(user.username)
+        $content.html($link)
+        $results.append($content)
+      })
+    }
   },
 
 
