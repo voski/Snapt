@@ -31,8 +31,8 @@ column name    | data type | details
 id             | integer   | not null, primary key
 author_id      | integer   | not null, foreign key (references users)
 photo_id       | integer   | not null, foreign key (references photos)
-body           | string    | not null, max length 240
-title          | boolean   | not null
+content        | text      | not null, max length 140
+timestamps     | date time | not null
 
 ## follows
 column name | data type | details
