@@ -22,6 +22,11 @@
      width: device-width;
 }
 
+nav {
+  padding-top: 5px;
+  height: 61px;
+}
+
 .navbar-brand {
   background-image: image-url("nav-logo.png");
   background-size: 137px;
@@ -35,6 +40,7 @@
 
 .user-show  {
   margin: 0 auto;
+  text-align: center;
 }
 
 body {
@@ -76,6 +82,17 @@ form ul li{
   list-style: none;
 }
 
+.list-group-item {
+  margin: 10px auto;
+  background-color: #eee;
+  display: inline-block;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.list-group-item:first-child {
+  border-radius: 15px;
+}
 
 img {
   background-image: image-url("spinner.gif");

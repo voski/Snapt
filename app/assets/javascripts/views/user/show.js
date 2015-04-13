@@ -1,5 +1,5 @@
 Snapt.Views.UserShow = Backbone.CompositeView.extend({
-  className: 'container user-show',
+  className: 'container user-show jumbotron',
 
   template: JST["user/show"],
     followTemplate: function () {

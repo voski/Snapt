@@ -10,15 +10,17 @@
       <a class="navbar-brand" href="#"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="#users/<%= Snapt.currentUser.get('id') %>" ><%= Snapt.currentUser.escape('username')%>'s page</a>
-        </li>
-
-      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li id='search-box'></li>
-        <li><a class="sign-out-btn" href="javascript:void(0);">Sign Out<span class="sr-only">(current)</span></a></li>
+        <li>
+          <a href="#users/<%= Snapt.currentUser.get('id') %>" >Profile</a>
+        </li>
+        <li>
+          <a href="#feed" >Feed</a>
+        </li>
+        <li>
+          <a class="sign-out-btn" href="javascript:void(0);">Sign Out</a>
+        </li>
       </ul>
     </div>
   </div>
