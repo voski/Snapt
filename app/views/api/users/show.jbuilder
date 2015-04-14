@@ -2,10 +2,7 @@ json.(@user, :username, :id)
 
 json.photos do
   json.array! @user.photos do |photo|
-    json.id photo.id
-    json.public_id photo.public_id
-    json.time_ago time_ago_in_words(photo.created_at)
-    json.author_id photo.author_id
+    json.partial! 'api/photos/photo', photo: photo
   end
 end
 
