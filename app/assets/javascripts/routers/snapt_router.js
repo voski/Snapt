@@ -4,7 +4,7 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   routes : {
-    '': 'showFeed',
+    'feed': 'showFeed',
     'users/:id' : 'showUser'
   },
 
@@ -18,7 +18,12 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   showFeed: function () {
-    console.log('feed me')
+    Snapt.Collections.feed.fetch();
+
+    var view = new Snapt.Views.Feed({
+      collection: Snapt.Collections.feed
+    });
+    this._swapView(view);
   },
 
   _swapView: function (view) {

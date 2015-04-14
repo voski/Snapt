@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
 
     resources :comments, only: [:create, :destroy, :show]
+
+    resources :feeds, only: [:index]
   end
 
 end

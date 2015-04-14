@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :in_follows, source: :follower
   has_many :followees, through: :out_follows, source: :followee
 
+  has_many :feed, through: :followees, source: :photos
+
   attr_reader :password
 
   def initialize(params = nil)
