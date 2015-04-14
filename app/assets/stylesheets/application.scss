@@ -17,6 +17,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@media (max-width: 991px) {
+  .list-group-item img {
+      display: block;
+      max-width:600px;
+      max-height:450px;
+      width: auto;
+      height: auto;
+  }
+}
+
 @viewport{
      zoom: 1.0;
      width: device-width;
@@ -98,5 +108,4 @@ img {
   background-image: image-url("spinner.gif");
   background-repeat: no-repeat;
   background-position: center center;
-
 }

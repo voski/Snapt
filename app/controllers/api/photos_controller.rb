@@ -13,11 +13,6 @@ class Api::PhotosController < ApplicationController
     render json: @photo
   end
 
-
-  def photo_params
-    params.require(:photo).permit(:author_id, :url, :public_id)
-  end
-
   def index
     @photos = User.find(params[:user_id]).photos
     render json: @photos
@@ -35,5 +30,9 @@ class Api::PhotosController < ApplicationController
     else
       render json: @photo.errors, status: 422
     end
+  end
+
+  def photo_params
+    params.require(:photo).permit(:author_id, :url, :public_id)
   end
 end
