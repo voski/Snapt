@@ -20,12 +20,13 @@
 @media (max-width: 991px) {
   .list-group-item img {
       display: block;
-      max-width:600px;
-      max-height:450px;
+      max-width:100%;
+      // max-height:450px;
       width: auto;
       height: auto;
   }
 }
+
 
 @viewport{
      zoom: 1.0;
