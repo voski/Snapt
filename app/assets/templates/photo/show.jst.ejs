@@ -1,13 +1,10 @@
 <%= photo.get("time_ago") %> ago
 <%= photo.cloudinaryUrl() %>
 
-<ul class="photo-comments list-group">
+<ul class="comments list-group"> 
 
 </ul>
 
-<form>
-  <input type="text" class="comment-input form-control" placeholder="Add a comment">
-</form>
 <% if (photo.isAuthor()) { %>
   <br>
   <button type="button" class="delete-photo" >Delete</button>

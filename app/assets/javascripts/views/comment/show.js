@@ -10,5 +10,5 @@ Snapt.Views.commentShow = Backbone.CompositeView.extend({
 
     return this;
   },
-  
+
 });
