@@ -4,6 +4,7 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   routes : {
+    '': 'showFeed',
     'feed': 'showFeed',
     'users/:id' : 'showUser'
   },

@@ -50,9 +50,8 @@ Snapt.Views.UserSearch = Backbone.CompositeView.extend({
   },
 
   renderResults: function (response) {
-    var $results = this.$results;
-    $results.empty();
-    
+    this.$results.empty();
+
     if (response.length === 0) {
       this.$dropdown.removeClass('open')
     } else {
@@ -63,8 +62,8 @@ Snapt.Views.UserSearch = Backbone.CompositeView.extend({
         $link.attr('href', '#users/' + user.id)
         $link.html(user.username)
         $content.html($link)
-        $results.append($content)
-      })
+        this.$results.append($content)
+      }, this)
     }
   },
 
