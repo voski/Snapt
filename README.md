@@ -13,8 +13,9 @@ Users can:
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Upload photos
-- [ ] View other users
-- [ ] Follow users
+- [x] View other users
+- [x] Follow users
+- [x] Search by username (will match partial names)
 - [ ] Add comments to photos
 - [ ] Add tags to photos
 - [ ] Like photos
