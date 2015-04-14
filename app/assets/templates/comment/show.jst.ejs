@@ -1,6 +1,11 @@
-<span class="user-profile">
+<span class="user-profile label label-info">
   <% if (comment.author) { %>
     <%= comment.author.escape('username') %>
-  <% } %> 
+  <% } %>
 </span>
-<%= comment.escape('content') %>
+<span>
+  <%= comment.escape('content') %>
+</span>
+<span class="badge">
+  <%= comment.escape('time_ago') %>
+</span>

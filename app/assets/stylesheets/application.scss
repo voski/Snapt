@@ -102,9 +102,10 @@ form ul li{
   border-radius: 15px;
 }
 
-.list-group-item:first-child {
+.list-group-item:last-child, .list-group-item:first-child {
   border-radius: 15px;
 }
+
 
 img {
   background-image: image-url("spinner.gif");

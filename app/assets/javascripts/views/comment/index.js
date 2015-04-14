@@ -1,5 +1,6 @@
 Snapt.Views.CommentIndex = Backbone.CompositeView.extend({
   template: JST['comment/index'],
+  className: 'well',
   initialize: function (options) {
     this.photo = options.photo,
     this.collection = options.photo.comments();
@@ -29,9 +30,9 @@ Snapt.Views.CommentIndex = Backbone.CompositeView.extend({
 
     var comment = new Snapt.Models.Comment({
       content: content,
-      author_id: Snapt.currentUser.id,
-      photo_id: this.photo.id
-    });
+      photo_id: this.photo.id,
+      photo: this.photo,
+    }, { parse: true });
 
     comment.save([], {
       success: function () {

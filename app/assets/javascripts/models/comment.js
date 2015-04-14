@@ -9,7 +9,6 @@ Snapt.Models.Comment = Backbone.Model.extend({
 
     return resp;
   },
-
-
+  
 
 });
