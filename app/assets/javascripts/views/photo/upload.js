@@ -22,7 +22,7 @@ Snapt.uploadWidget = function (options) {
         });
 
         newPhoto.save({}, {
-          success: function () {
+          success: function (model, response) {
             this.collection.add(newPhoto, { merge: true });
           }.bind(this)
         })
