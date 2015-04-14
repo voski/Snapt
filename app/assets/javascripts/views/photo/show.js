@@ -11,6 +11,29 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
 
   className: 'list-group-item',
 
+  initialize: function () {
+    this.collection = this.model.comments();
+    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.collection, 'add', this.addCommentView);
+    this.listenTo(this.collection, 'remove', this.removeCommentView);
+    this.collection.each(function (comment) {
+      this.addCommentView(comment);
+    }, this)
+  },
+
+  addCommentView: function (comment) {
+    var subview = new Snapt.Views.commentShow({ model: comment });
+    this.addSubview('.photo-comments', subview)
+  },
+
+  removeCommentView: function (comment) {
+    _(this.subviews('.photo-comments')).each(function (subview) {
+      if(subview.model == comment) {
+        this.removeSubview('.photo-comments', subview);
+      }
+    }, this);
+  },
+
   addComment: function (e) {
     e.preventDefault();
     var $input = $(e.target).find('input');
@@ -22,16 +45,19 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
       photo_id: this.model.id
     });
 
-    comment.save()
+    comment.save([], {
+      success: function () {
+        this.collection.add(comment, {merge: true})
+        $input.val('')
+      }.bind(this)
+    })
   },
 
-  initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
-  },
 
   render: function () {
     var content = this.template({ photo: this.model });
     this.$el.html(content);
+    this.attachSubviews();
 
     return this;
   },

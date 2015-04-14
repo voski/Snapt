@@ -2,7 +2,21 @@ Snapt.Models.Photo = Backbone.Model.extend({
   urlRoot: '/api/photos',
 
   parse: function (resp) {
+    if (resp.comments) {
+      this.comments().set(resp.comments, { parse: true });
+      delete resp.comments
+    }
     return resp;
+  },
+
+  comments: function () {
+    if (!this._comments) {
+      this._comments = new Snapt.Collections.Comments(
+        [], { photo: this }
+      )
+    }
+
+    return this._comments
   },
 
   isAuthor: function() {
