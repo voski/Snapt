@@ -14,12 +14,16 @@ Snapt.uploadWidget = function (options) {
   var uploadCallback = function (error, result) {
     if (error) {
       console.log('something went wrong')
-    } else { // returns array of uploaded photos
+    } else {
       _(result).each(function (photo) {
         var newPhoto = new Snapt.Models.Photo({
           public_id: photo.public_id,
-          coordinates: photo.coordinates['custom'][0],
         });
+
+        // set crop data if there is any
+        if (typeof photo.coordinates['custom'] !== "undefined") {
+          newPhoto.set({coordinates: photo.coordinates['custom'][0]})
+        }
 
         newPhoto.save({}, {
           success: function (model, response) {
