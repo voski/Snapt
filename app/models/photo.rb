@@ -21,4 +21,8 @@ class Photo < ActiveRecord::Base
   has_many :likers, through: :likes, source: :liker
 
   default_scope { order(:created_at) }
+
+  def like_count
+    self.likes.count(:all)
+  end
 end
