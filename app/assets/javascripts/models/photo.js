@@ -30,6 +30,8 @@ Snapt.Models.Photo = Backbone.Model.extend({
       crop: 'fill',
     }
 
+    jQuery.extend(params, options);
+
     return (
       $.cloudinary.image(
         this.escape('public_id'),

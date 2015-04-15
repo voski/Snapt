@@ -1,7 +1,7 @@
 <div>
   <%= photo.get("time_ago") %> ago
   <br>
-  <%= photo.cloudinaryUrl() %>
+  <%= photo.cloudinaryUrl({ gravity: "custom" }) %>
 </div>
 
 <div class="title">

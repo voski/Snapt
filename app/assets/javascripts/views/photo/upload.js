@@ -8,6 +8,7 @@ Snapt.uploadWidget = function (options) {
     tags: ["lol", "yay"],
     multiple: false,
     theme: 'minimal',
+    cropping: 'server',
   };
 
   var uploadCallback = function (error, result) {
@@ -15,11 +16,7 @@ Snapt.uploadWidget = function (options) {
       console.log('something went wrong')
     } else { // returns array of uploaded photos
       _(result).each(function (photo) {
-        var newPhoto = new Snapt.Models.Photo({
-          url: photo.url,
-          author_id: Snapt.currentUser.id,
-          public_id: photo.public_id
-        });
+        var newPhoto = new Snapt.Models.Photo(photo);
 
         newPhoto.save({}, {
           success: function (model, response) {
