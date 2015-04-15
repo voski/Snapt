@@ -12,7 +12,14 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.addTitle();
     this.addCommentIndex();
+
+  },
+
+  addTitle: function () {
+    var subview = new Snapt.Views.PhotoTitle({ model: this.model })
+    this.addSubview('div.title', subview);
   },
 
   addCommentIndex: function () {

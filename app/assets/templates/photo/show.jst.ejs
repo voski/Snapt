@@ -1,9 +1,12 @@
-<%= photo.get("time_ago") %> ago
-<%= photo.cloudinaryUrl() %>
+<div>
+  <%= photo.get("time_ago") %> ago
+  <br>
+  <%= photo.cloudinaryUrl() %>
+</div>
 
-<li class="list-group-item">
-<%= photo.escape('title') %>
-</li>
+<div class="title">
+</div>
+
 <ul class="comments list-group">
 </ul>
 

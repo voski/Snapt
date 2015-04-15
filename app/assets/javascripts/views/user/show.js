@@ -19,8 +19,6 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
     }, this);
   },
 
-
-
   follow: function (e) {
     $.ajax({
       url:"api/users/" + this.model.id + '/follow',

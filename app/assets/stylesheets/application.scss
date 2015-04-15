@@ -17,15 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-@media (max-width: 991px) {
-  .list-group-item img {
-      display: block;
-      max-width:100%;
-      // max-height:450px;
-      width: auto;
-      height: auto;
-  }
-}
+// @media (max-width: 991px) {
+//   .list-group-item img {
+//       display: block;
+//       max-width:100%;
+//       width: auto;
+//       height: auto;
+//   }
+// }
 
 
 @viewport{
@@ -106,9 +105,22 @@ form ul li{
   border-radius: 15px;
 }
 
-
 img {
   background-image: image-url("spinner.gif");
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+div.title > .list-group-item {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-radius-top-left: 0px;
+}
+
+.list-group-item img {
+    display: block;
+    max-width:100%;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
 }
