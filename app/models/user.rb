@@ -70,6 +70,13 @@ class User < ActiveRecord::Base
     self.in_follows.exists?(follower_id: user.id)
   end
 
+  def followees_count
+    self.followees.count(:all)
+  end
+
+  def followers_count
+    self.followers.count(:all)
+  end
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64

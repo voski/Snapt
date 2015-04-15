@@ -4,7 +4,6 @@
 #
 #  id          :integer          not null, primary key
 #  author_id   :integer          not null
-#  url         :string           not null
 #  created_at  :datetime
 #  updated_at  :datetime
 #  public_id   :string           not null
@@ -17,6 +16,9 @@ class Photo < ActiveRecord::Base
 
   belongs_to :author, class_name: 'User', foreign_key: :author_id
   has_many :comments, dependent: :destroy
+
+  has_many :likes
+  has_many :likers, through: :likes, source: :liker
 
   default_scope { order(:created_at) }
 end
