@@ -8,8 +8,11 @@ Snapt.uploadWidget = function (options) {
     tags: ["lol", "yay"],
     multiple: false,
     theme: 'minimal',
-    cropping: 'server',
   };
+
+  if (!Snapt.isMobile.any()) {
+    presets.cropping = "server"
+  }
 
   var uploadCallback = function (error, result) {
     if (error) {
