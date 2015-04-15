@@ -10,8 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require static_pages
+ *= require nav
+ *= require like
+ *= require title
+ *= require_tree .
  */
 
 @import "bootstrap-sprockets";
@@ -69,11 +73,7 @@ img {
   background-position: center center;
 }
 
-div.title > .list-group-item {
-  margin-top: 0px;
-  margin-bottom: 10px;
-  border-radius-top-left: 0px;
-}
+
 
 .list-group-item img {
     display: block;
