@@ -34,6 +34,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:author_id, :url, :public_id, :custom)
+    params.require(:photo).permit(:public_id, coordinates: [] )
   end
 end
