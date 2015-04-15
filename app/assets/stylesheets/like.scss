@@ -1,10 +1,20 @@
 form.like-index {
   div.input-group-addon {
     border-top-left-radius: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   div.form-control {
     border-top-right-radius: 0px;
+  }
+
+  .like-btn {
+    font-size: 1.3em;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
