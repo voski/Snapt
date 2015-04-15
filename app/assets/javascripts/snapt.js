@@ -12,10 +12,6 @@ window.Snapt = {
       model: Snapt.currentUser
     }).render();
 
-    new Snapt.Views.PhotoTitleModal({
-      $el: $('#photo-title-modal'),
-    }).render();
-
     Backbone.history.start();
   }
 };

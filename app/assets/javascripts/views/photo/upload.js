@@ -23,7 +23,6 @@ Snapt.uploadWidget = function (options) {
 
         newPhoto.save({}, {
           success: function (model, response) {
-            Backbone.trigger('addTitle', { photo: model })
             this.collection.add(newPhoto, { merge: true });
           }.bind(this)
         })
