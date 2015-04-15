@@ -5,7 +5,7 @@ class Api::LikesController < ApplicationController
     @like.liker = current_user
 
     if @like.save
-      render :show
+      render json: @like
     else
       render json: @like.errors.full_messages, status: 422
     end
@@ -19,12 +19,12 @@ class Api::LikesController < ApplicationController
 
   def show
     @like = Like.find(params[:id])
-    render :show
+    render json: @like
   end
 
   def index
-    @likes = User.find(params[:user_id]).likes
-    render :index
+    @likes = Photo.find(params[:photo_id]).likes.includes(:liker)
+    render json: @likes
   end
 
   def like_params

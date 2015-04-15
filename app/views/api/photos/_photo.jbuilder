@@ -8,3 +8,14 @@ json.coordinates photo.coordinates
 json.comments do
   json.partial! '/api/comments/comments', comments: photo.comments
 end
+
+
+json.likes do
+  json.array! photo.likes do |like|
+    json.id like.id
+    json.liker do
+      json.id like.liker.id
+      json.username like.liker.username
+    end
+  end
+end

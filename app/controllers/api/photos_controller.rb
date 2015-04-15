@@ -2,7 +2,7 @@ class Api::PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.author = current_user
-    
+
     if @photo.save
       render :show
     else
@@ -11,12 +11,12 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id]);
+    @photo = Photo.includes(:author, :comments, :likers, :likes, :comment_authors).find(params[:id]);
     render :show
   end
 
   def index
-    @photos = User.find(params[:user_id]).photos.order(:created_at)
+    @photos = User.find(params[:user_id]).photos.includes(:comments, :likers, :likes)
     render :index
   end
 

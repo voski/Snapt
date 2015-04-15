@@ -1,7 +1,8 @@
 Snapt.Views.LikeIndex = Backbone.CompositeView.extend({
   template: JST['like/index'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.photo = options.photo
     this.addBtn();
   },
 
