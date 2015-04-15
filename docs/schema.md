@@ -13,10 +13,10 @@ session_token   | string    | not null, unique
 ## Photos
 column name | data type | details
 ------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
-public_id   | string    | not null, used for cloudinary
-url         | string    | not null, unique
+id          | integer    | not null, primary key
+author_id   | integer    | not null, foreign key (references users)
+public_id   | string     | not null, used for cloudinary
+coordinates | array, int | used for cropping
 
 ## Likes
 column name | data type | details

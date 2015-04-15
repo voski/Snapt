@@ -16,11 +16,11 @@ Users can:
 - [x] View other users
 - [x] Follow users
 - [x] Search by username (will match partial names)
-- [ ] Add comments to photos
+- [x] Add comments to photos
+- [x] View a feed of followed users
 - [ ] Add tags to photos
 - [ ] Like photos
 - [ ] Tag users in photos/comments
-- [ ] View a feed of followed users
 - [ ] Search for photos by tag
 - [ ] Search for posts by tag
 
