@@ -9,8 +9,13 @@ form.like-index {
     border-top-right-radius: 0px;
   }
 
+  .glyphicon-heart {
+    padding: 13px
+  }
+
   .like-btn {
     font-size: 1.3em;
+    padding: 0;
 
     &:hover {
       cursor: pointer;

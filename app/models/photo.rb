@@ -25,4 +25,5 @@ class Photo < ActiveRecord::Base
   def like_count
     self.likes.count(:all)
   end
+
 end
