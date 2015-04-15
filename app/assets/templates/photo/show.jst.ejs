@@ -1,7 +1,12 @@
 <div>
   <%= photo.get("time_ago") %> ago
   <br>
-  <%= photo.cloudinaryUrl({ gravity: "custom" }) %>
+  <%= photo.cloudinaryUrl({
+    gravity: "face",
+    crop: "thumb",
+    width: 90,
+    height: 90
+  }) %>
 </div>
 
 <div class="title">
