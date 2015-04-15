@@ -23,18 +23,23 @@ Snapt.Models.Photo = Backbone.Model.extend({
     return Snapt.currentUser.id === this.get('author_id');
   },
 
-  width: function () {
-    return this.get('coordinates')[2];
+  width: function (width) {
+    if (!width) {
+      return this.get('coordinates')[2];
+    }
+
+    return width;
   },
 
-  height: function () {
-    return this.get('coordinates')[3];
+  height: function (height) {
+    if (!height) {
+      return this.get('coordinates')[3];
+    }
+    return height;
   },
 
   cloudinaryUrl: function(options) {
     var params = {
-      width: 800,
-      height: 600,
       crop: 'fill',
     }
 

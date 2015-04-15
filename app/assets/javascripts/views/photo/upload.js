@@ -4,12 +4,13 @@ Snapt.uploadWidget = function (options) {
 
   var presets = {
     upload_preset: 'goImgGo', // default settings for uploads
-    context: {caption: 'author_id', alt: Snapt.currentUser.id},
+    context: { caption: 'author_id', alt: Snapt.currentUser.id },
     tags: ["lol", "yay"],
     multiple: false,
     theme: 'minimal',
   };
 
+  // toggle cropping off for mobile
   if (!Snapt.isMobile.any()) {
     presets.cropping = "server"
   }
