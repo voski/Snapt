@@ -1,3 +1,28 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.logo {
+  min-width: 320px;
+  width: 40%;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.logo input {
+  text-align: center;
+}
+
+.logo * {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.logo li:last-child {
+  margin-top: 5px;
+}
+
+.logo > img {
+  margin-bottom: 5px;
+  width: 100%;
+  background-image: none;
+}

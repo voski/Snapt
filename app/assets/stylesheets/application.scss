@@ -17,15 +17,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// @media (max-width: 991px) {
-//   .list-group-item img {
-//       display: block;
-//       max-width:100%;
-//       width: auto;
-//       height: auto;
-//   }
-// }
-
 
 @viewport{
      zoom: 1.0;
@@ -35,18 +26,6 @@
 .user-profile {
   float: left;
   font-size: 1.1em;
-}
-
-nav {
-  padding-top: 5px;
-  height: 61px;
-}
-
-.navbar-brand {
-  background-image: image-url("nav-logo.png");
-  background-size: 137px;
-  width: 137px;
-  margin-right: 20px;
 }
 
 .user-show  {
@@ -59,35 +38,14 @@ body {
   padding-top: 70px;
 }
 
-.logo {
-  min-width: 320px;
-  width: 40%;
-  margin: 0 auto;
-  max-width: 500px;
-}
+
 
 form ul li{
   list-style: none;
   padding-left: 0;
 }
 
-.logo input {
-  text-align: center;
-}
 
-.logo * {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.logo li:last-child {
-  margin-top: 5px;
-}
-
-.logo > img {
-  width: 100%;
-  background-image: none;
-}
 
 .auth-form > ul  {
   list-style: none;
