@@ -25,10 +25,10 @@ class User < ActiveRecord::Base
   validates :private, inclusion: [true, false]
   after_initialize :ensure_session_token
 
-  has_many :comments, foreign_key: :author_id
-  has_many :photos, foreign_key: :author_id
-  has_many :in_follows, class_name: "Follow", foreign_key: "followee_id"
-  has_many :out_follows, class_name: "Follow", foreign_key: "follower_id"
+  has_many :comments, foreign_key: :author_id, dependent: :destroy
+  has_many :photos, foreign_key: :author_id, dependent: :destroy
+  has_many :in_follows, class_name: "Follow", foreign_key: "followee_id", dependent: :destroy
+  has_many :out_follows, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
   has_many :followers, through: :in_follows, source: :follower
   has_many :followees, through: :out_follows, source: :followee
 

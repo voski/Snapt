@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'static_pages#index'
-  
+
   resources :users, only: [:create, :new]
   resource :session, only: [:new, :create, :destroy]
 
@@ -15,10 +15,11 @@ Rails.application.routes.draw do
 
     resources :photos, only: [:create, :destroy, :show, :update] do
       resources :comments, only: [:index]
+      resources :likes, only: [:index]
     end
 
     resources :comments, only: [:create, :destroy, :show]
-
+    resources :likes, only: [:create, :destroy, :show]
     resources :feeds, only: [:index]
   end
 
