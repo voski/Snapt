@@ -4,7 +4,7 @@ Snapt.Views.LikeButton = Backbone.View.extend({
 
   initialize: function (options) {
     this.photo = options.photo;
-    this.listenTo(this.photo.likes(), 'add remove', this.render)
+    // this.listenTo(this.photo.likes(), 'add remove', this.render)
   },
 
   events: {
@@ -44,6 +44,7 @@ Snapt.Views.LikeButton = Backbone.View.extend({
     _like.destroy({
       success: function () {
         this.photo.likes().remove(_like)
+        this.$el.removeClass('like-animate')
       }.bind(this)
     })
   },
@@ -55,6 +56,7 @@ Snapt.Views.LikeButton = Backbone.View.extend({
       success: function (model, resp) {
         like.liker = Snapt.currentUser
         this.photo.likes().set(like, { parse: true })
+        this.$el.addClass('like-animate')
       }.bind(this)
     })
   },

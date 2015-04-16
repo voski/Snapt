@@ -1,8 +1,14 @@
-form.like-index {
+
+form.like {
   div.input-group-addon {
     border-top-left-radius: 0px;
     padding-top: 0;
     padding-bottom: 0;
+    transition: background-color 1s ease;
+
+    &:hover {
+      background-color: #4777d2;
+    }
   }
 
   div.form-control {
@@ -10,7 +16,14 @@ form.like-index {
   }
 
   .glyphicon-heart {
-    padding: 13px
+    padding: 13px;
+    position: relative;
+
+    // transition: border .5s ease;
+    // transition-property: color;
+    // transition-duration: 1s;
+
+
   }
 
   .like-btn {
@@ -25,4 +38,8 @@ form.like-index {
 
 .like-index {
   margin-bottom: 10px;
+}
+
+.like-animate {
+  color: red
 }

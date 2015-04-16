@@ -1,0 +1,18 @@
+input.form-control {
+  box-shadow: 0 0 0px;
+
+  transition: box-shadow .5s ease;
+
+  &:hover {
+    box-shadow: 0 0 20px #4777d2;
+  }
+
+  &:focus {
+    box-shadow: 0 0 20px #4777d2;
+
+  }
+}
+// input.form-control:hover{
+//   box-shadow: 0 0 20px #4777d2;
+//   // transition: box-shadow 2s ease;
+// }
