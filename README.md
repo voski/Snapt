@@ -20,8 +20,8 @@ Users can:
 - [x] Search by username (will match partial names)
 - [x] Add comments to photos
 - [x] View a feed of followed users
+- [x] Like photos
 - [ ] Add tags to photos
-- [ ] Like photos
 - [ ] Tag users in photos/comments
 - [ ] Search for photos by tag
 - [ ] Search for posts by tag
