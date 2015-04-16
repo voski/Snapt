@@ -12,8 +12,11 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(parmas[:id])
+    @like = Like.find(params[:id])
     render json: @like, status: 403 unless @like.liker = current_user
+    if @like.destroy
+      render json: @like
+    end
 
   end
 

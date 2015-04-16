@@ -1,1 +1,5 @@
-<span class="glyphicon glyphicon-heart"></span>
+<% if (isLikedByUser) { %>
+  <span class="glyphicon glyphicon-heart" style="color:red"></span>
+<% } else { %>
+  <span class="glyphicon glyphicon-heart"></span>
+<% } %>

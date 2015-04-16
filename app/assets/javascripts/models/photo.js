@@ -6,7 +6,22 @@ Snapt.Models.Photo = Backbone.Model.extend({
       this.comments().set(resp.comments, { parse: true });
       delete resp.comments
     }
+
+    if (resp.likes) {
+      this.likes().set(resp.likes, { parse: true })
+      delete resp.likes
+    }
     return resp;
+  },
+
+  likes: function () {
+    if (!this._likes) {
+      this._likes = new Snapt.Collections.Likes(
+        [], { photo: this }
+      )
+    }
+
+    return this._likes
   },
 
   comments: function () {
