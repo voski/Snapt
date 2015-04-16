@@ -2,8 +2,10 @@ Snapt.Views.commentShow = Backbone.CompositeView.extend({
   template: JST['comment/show'],
   tagName: 'li',
   className: 'list-group-item',
+
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render)
+    this.addUserThumb();
   },
 
   render: function () {
@@ -11,6 +13,11 @@ Snapt.Views.commentShow = Backbone.CompositeView.extend({
     this.$el.html(content);
 
     return this;
+  },
+
+  addUserThumb: function () {
+    var subview = new Snapt.Views.UserThumb({ model: this.model.author() })
+    this.addSubview('div.user-thumb', subview)
   },
 
 });
