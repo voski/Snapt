@@ -10,11 +10,32 @@ nav {
   margin-right: 20px;
 }
 
-nav a {
-  transition: font-size 1s ease;
-  
-  &:hover {
+// nav a {
+//   transition: font-size .1s ease;
+//
+//   &:hover {
+//     font-size: 1.5em;
+//
+//   }
+// }
 
-    font-size: 1.5em;
+nav li.active-tab {
+  transition: font-size .2s ease;
+  // transform: scale(1.5);
+  font-size: 1.5em;
+  a {
+    transition: font-size .2s ease;
+    text-decoration: none;
+  }
+
+}
+
+nav li:not(.active-tab){
+  a {
+    transition: font-size .2s ease;
+    text-decoration: none;
+    &:hover {
+      font-size: 1.5em;
+    }
   }
 }

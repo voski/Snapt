@@ -4,11 +4,12 @@ form.like {
     border-top-left-radius: 0px;
     padding-top: 0;
     padding-bottom: 0;
-    transition: background-color 1s ease;
+    // transition: background-color 1s ease;
+    //
+    // &:hover {
+    //   background-color: #4777d2;
+    // }
 
-    &:hover {
-      background-color: #4777d2;
-    }
   }
 
   div.form-control {
@@ -19,11 +20,11 @@ form.like {
     padding: 13px;
     position: relative;
 
-    // transition: border .5s ease;
-    // transition-property: color;
-    // transition-duration: 1s;
+    transition: transform .3s ease, color .5s ease;
 
-
+    &:hover {
+      transform: scale(2);
+    }
   }
 
   .like-btn {
@@ -40,6 +41,6 @@ form.like {
   margin-bottom: 10px;
 }
 
-.like-animate {
-  color: red
+.liked {
+  color: #4777d2;
 }

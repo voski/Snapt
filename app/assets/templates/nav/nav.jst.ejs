@@ -12,10 +12,11 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li id='search-box'></li>
-        <li>
-          <a href="#users/<%= Snapt.currentUser.get('id') %>" >Profile</a>
+        <!-- nav items -->
+        <li class="profile-link">
+          <a href="#users/<%= Snapt.currentUser.get('id') %>">Profile</a>
         </li>
-        <li>
+        <li class="feed-link">
           <a href="#feed" >Feed</a>
         </li>
         <li>

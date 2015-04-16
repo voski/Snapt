@@ -5,9 +5,9 @@ window.Snapt = {
   Routers: {},
   initialize: function() {
 
-    new Snapt.Routers.Router({ $el: $('#main') });
+  this.router = new Snapt.Routers.Router({ $el: $('#main') });
 
-    new Snapt.Views.Nav({
+  this.nav = new Snapt.Views.Nav({
       $el: $('#header'),
       model: Snapt.currentUser
     }).render();
