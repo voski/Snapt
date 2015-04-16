@@ -9,3 +9,12 @@ nav {
   width: 137px;
   margin-right: 20px;
 }
+
+nav a {
+  transition: font-size 1s ease;
+  
+  &:hover {
+
+    font-size: 1.5em;
+  }
+}
