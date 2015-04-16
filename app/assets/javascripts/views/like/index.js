@@ -5,6 +5,7 @@ Snapt.Views.LikeIndex = Backbone.CompositeView.extend({
     this.photo = options.photo;
     this.listenTo(this.photo, 'change:likes_count', this.updateCount)
     this.addBtn();
+    this.addCounter();
   },
 
   render: function () {
@@ -18,5 +19,10 @@ Snapt.Views.LikeIndex = Backbone.CompositeView.extend({
     var subview = new Snapt.Views.LikeButton({ photo: this.photo });
     this.addSubview('div.like-btn', subview)
   },
+
+  addCounter: function () {
+    var subview = new Snapt.Views.LikeCounter({ photo: this.photo })
+    this.addSubview('div.like-counter', subview)
+  }
 
 });
