@@ -36,9 +36,7 @@ Snapt.Views.Nav = Backbone.CompositeView.extend({
     $.ajax({
       url: "/session",
       type: "DELETE",
-      success: function (widgetData) {
-        console.log("Here are the fetched json parameters of the widget:");
-        console.log(widgetData);
+      success: function (resp) {
         window.location.href = ''
       }
     });

@@ -20,7 +20,7 @@ class Photo < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :likers, through: :likes, source: :liker
 
-  default_scope { order(:created_at) }
+  default_scope { order("created_at DESC") }
 
   def like_count
     self.likes.count(:all)

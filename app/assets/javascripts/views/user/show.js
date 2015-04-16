@@ -39,7 +39,6 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
       success: function (resp) {
         Snapt.currentUser.followees().remove(this.model);
         this.render();
-        Snapt.Collections.feed.fetch();
       }.bind(this)
     })
   },

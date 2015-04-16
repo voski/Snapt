@@ -5,6 +5,7 @@ Snapt.Collections.Photos = Backbone.Collection.extend({
     this.author = options.author;
   },
 
+  comparator: "created_at",
 
   url: function () {
     return 'api/users/' + this.author.id + '/photos'

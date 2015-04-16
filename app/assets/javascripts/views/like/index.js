@@ -2,12 +2,13 @@ Snapt.Views.LikeIndex = Backbone.CompositeView.extend({
   template: JST['like/index'],
 
   initialize: function (options) {
-    this.photo = options.photo
+    this.photo = options.photo;
+    this.listenTo(this.photo, 'change:likes_count', this.updateCount)
     this.addBtn();
   },
 
   render: function () {
-    var content = this.template();
+    var content = this.template({photo: this.photo});
     this.$el.html(content);
     this.attachSubviews();
     return this;

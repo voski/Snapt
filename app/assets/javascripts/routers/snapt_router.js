@@ -24,10 +24,11 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   showFeed: function () {
-    Snapt.Collections.feed.fetch();
+    var feed =  new Snapt.Collections.Feed
+    feed.fetch()
 
     var view = new Snapt.Views.Feed({
-      collection: Snapt.Collections.feed
+      collection: feed
     });
     this._swapView(view);
   },

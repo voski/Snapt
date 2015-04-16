@@ -10,7 +10,7 @@
 #
 
 class Like < ActiveRecord::Base
-  belongs_to :photo
+  belongs_to :photo, counter_cache: true
   belongs_to :liker, class_name: "User", foreign_key: :liker_id
 
   validates :liker_id, :photo_id, presence: true
