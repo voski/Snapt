@@ -1,6 +1,7 @@
 Snapt.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$el = options.$el;
+
     this.listenTo(this, 'route', this.setActiveTab)
   },
 
@@ -24,7 +25,7 @@ Snapt.Routers.Router = Backbone.Router.extend({
   },
 
   showFeed: function () {
-    var feed =  new Snapt.Collections.Feed
+    var feed = Snapt.Collections.feed
     feed.fetch()
 
     var view = new Snapt.Views.Feed({

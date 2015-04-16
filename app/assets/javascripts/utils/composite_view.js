@@ -1,8 +1,30 @@
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview) {
-    this.subviews(selector).push(subview);
-    // Try to attach the subview. Render it as a convenience.
-    this.attachSubview(selector, subview.render());
+    this.addSubviewInOrder(selector, subview)
+    // this.subviews(selector).push(subview);
+    // this.attachSubview(selector, subview.render());
+  },
+
+  addSubviewInOrder: function (selector, subview) {
+    var selectorSubviews = this.subviews(selector);
+    if (selectorSubviews.length === 0) {
+      selectorSubviews.push(subview);
+      this.attachSubview(selector, subview.render());
+
+    } else if (subview.model) {
+      var newDate = subview.model.get('created_at');
+      var idx = _.findIndex(selectorSubviews, function (subview) {
+        var otherDate = subview.model.get('created_at');
+        return otherDate < newDate;
+      })
+
+      if (idx === -1) {
+        selectorSubviews.push(subview);
+      } else {
+        selectorSubviews.splice(idx, 0, subview)
+      }
+      this.attachSubview(selector, subview.render());
+    }
   },
 
   attachSubview: function (selector, subview) {

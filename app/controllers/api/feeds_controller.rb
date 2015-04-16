@@ -6,7 +6,6 @@ class Api::FeedsController < ApplicationController
       includes(:comments, :likes, :likers, :comment_authors).
       order("photos.created_at")
 
-
     render :index
   end
 

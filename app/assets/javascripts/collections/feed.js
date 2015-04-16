@@ -3,3 +3,5 @@ Snapt.Collections.Feed = Backbone.Collection.extend({
   model: Snapt.Models.Photo,
   comparator: "time_ago",
 });
+
+Snapt.Collections.feed = new Snapt.Collections.Feed;
