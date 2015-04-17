@@ -44,20 +44,20 @@ Snapt.uploadWidget = function (options) {
       console.log('something went wrong')
     } else {
       _(result).each(function (photo) {
-        var newPhoto = new Snapt.Models.Photo({
-          public_id: photo.public_id,
-        });
+        // var newPhoto = new Snapt.Models.Photo({
+          // public_id: photo.public_id,
+          Snapt.currentUser.save({profile_pic_pid: photo.public_id});
+        // });
 
         // set crop data if there is any
-        if (typeof photo.coordinates['custom'] !== "undefined") {
-          newPhoto.set({coordinates: photo.coordinates['custom'][0]})
-        }
+        // if (typeof photo.coordinates['custom'] !== "undefined") {
+          // newPhoto.set({coordinates: photo.coordinates['custom'][0]})
+        // }
 
-        newPhoto.save({}, {
-          success: function (model, response) {
-            Snapt.currentUser.save({profile_pic_pid: newPhoto.escape('public_id')});
-          }.bind(this)
-        })
+        // newPhoto.save({}, {
+        //   success: function (model, response) {
+        //   }.bind(this)
+        // })
       }.bind(this))
     }
   };
