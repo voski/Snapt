@@ -31,7 +31,7 @@ Snapt.uploadWidget = function (options) {
 
         newPhoto.save({}, {
           success: function (model, response) {
-            this.collection.add(newPhoto, { merge: true });
+            this.collection.add(newPhoto, { merge: true, new: true });
           }.bind(this)
         })
       }.bind(this))

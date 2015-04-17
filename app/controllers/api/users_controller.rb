@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
       :followees,
       :followers)
     .find(params[:id])
-    
+
     render :show
   end
 

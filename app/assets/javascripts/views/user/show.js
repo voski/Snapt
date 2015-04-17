@@ -43,9 +43,13 @@ Snapt.Views.UserShow = Backbone.CompositeView.extend({
     })
   },
 
-  addPhotoView: function (photo) {
+  addPhotoView: function (photo, collection, options) {
     var subview = new Snapt.Views.PhotoShow({ model: photo })
-    this.addSubview('.feed-photos', subview)
+    if (options.new) {
+      this.addSubview('.feed-photos', subview, true)
+    } else {
+      this.addSubview('.feed-photos', subview)
+    }
   },
 
   removePhotoView: function (photo) {

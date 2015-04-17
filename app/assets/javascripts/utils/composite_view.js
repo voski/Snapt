@@ -1,15 +1,16 @@
 Backbone.CompositeView = Backbone.View.extend({
-  addSubview: function (selector, subview) {
-    this.addSubviewInOrder(selector, subview)
+  addSubview: function (selector, subview, prepend) {
+    prepend = prepend || false
+    this.addSubviewInOrder(selector, subview, prepend)
     // this.subviews(selector).push(subview);
     // this.attachSubview(selector, subview.render());
   },
 
-  addSubviewInOrder: function (selector, subview) {
+  addSubviewInOrder: function (selector, subview, prepend) {
     var selectorSubviews = this.subviews(selector);
     if (selectorSubviews.length === 0) {
       selectorSubviews.push(subview);
-      this.attachSubview(selector, subview.render());
+      this.attachSubview(selector, subview.render(), prepend);
 
     } else if (subview.model) {
       var newDate = subview.model.get('created_at');
@@ -17,18 +18,21 @@ Backbone.CompositeView = Backbone.View.extend({
         var otherDate = subview.model.get('created_at');
         return otherDate < newDate;
       })
-
       if (idx === -1) {
         selectorSubviews.push(subview);
       } else {
         selectorSubviews.splice(idx, 0, subview)
       }
-      this.attachSubview(selector, subview.render());
+      this.attachSubview(selector, subview.render(), prepend);
     }
   },
 
-  attachSubview: function (selector, subview) {
-    this.$(selector).append(subview.$el);
+  attachSubview: function (selector, subview, prepend) {
+    if (prepend) {
+      this.$(selector).prepend(subview.$el);
+    } else {
+      this.$(selector).append(subview.$el);
+    }
     // Bind events in case `subview` has previously been removed from
     // DOM.
     subview.delegateEvents();
