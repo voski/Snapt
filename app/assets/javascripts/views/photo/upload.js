@@ -12,7 +12,7 @@ Snapt.uploadWidget = function (options) {
 
   // toggle cropping off for mobile
   if (!Snapt.isMobile.any()) {
-    presets.cropping = "server"
+    // presets.cropping = "server"
   }
 
   var uploadCallback = function (error, result) {

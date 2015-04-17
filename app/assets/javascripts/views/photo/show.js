@@ -8,7 +8,7 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
 
   tagName: 'li',
 
-  className: 'list-group-item',
+  className: 'list-group-item constrain-width',
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
