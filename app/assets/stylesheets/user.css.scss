@@ -7,3 +7,16 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.btn-snapt {
+  background-color: #4777d2;
+  font-size: 3em;
+  color: white;
+  margin-bottom: 10px;
+  transition: transform, .5s, ease;
+
+  &:hover {
+    transform: scale(1.25);
+    color: white;
+  }
+}

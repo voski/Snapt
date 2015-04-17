@@ -1,6 +1,7 @@
 <h1><%= user.escape('username') %></h1>
+<hr>
 <% if ( user.authorized() ) { %>
-  <button type="button" id='widget' >Upload a Picture bruh</button>
+  <button type="button" id='widget' class='btn btn-snapt btn-lg' >Snap</button>
 <% } else { %>
 
   <% if (Snapt.currentUser._isFollowing(user)) { %>
