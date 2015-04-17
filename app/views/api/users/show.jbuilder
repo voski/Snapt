@@ -1,4 +1,4 @@
-json.(@user, :username, :id)
+json.(@user, :username, :id, :profile_pic_pid)
 
 json.photos do
   json.array! @user.photos do |photo|

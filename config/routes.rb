@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
 
-    resources :users, only: [:show, :index] do
+    resources :users, only: [:show, :index, :update] do
       get "search", on: :collection
 
       resources :photos, only: [:index]

@@ -16,7 +16,21 @@ Snapt.Models.User = Backbone.Model.extend({
       this.followers().set(resp.followers, { parse: true })
     }
 
+    if (resp.profile_pic_pid) {
+      this.profilePic().set({public_id: resp.profile_pic_pid})
+    }
+
     return resp;
+  },
+
+  profilePic: function () {
+    if (!this._profilePic) {
+      this._profilePic = new Snapt.Models.Photo(
+        [], { author: this }
+      );
+    }
+
+    return this._profilePic;
   },
 
   photos: function () {

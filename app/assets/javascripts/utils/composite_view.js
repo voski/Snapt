@@ -1,18 +1,17 @@
 Backbone.CompositeView = Backbone.View.extend({
-  addSubview: function (selector, subview, prepend) {
-    prepend = prepend || false
-    this.addSubviewInOrder(selector, subview, prepend)
-    // this.subviews(selector).push(subview);
-    // this.attachSubview(selector, subview.render());
+  addSubview: function (selector, subview) {
+    this.subviews(selector).push(subview);
+    this.attachSubview(selector, subview.render());
   },
 
   addSubviewInOrder: function (selector, subview, prepend) {
+    prepend = prepend || false
     var selectorSubviews = this.subviews(selector);
     if (selectorSubviews.length === 0) {
       selectorSubviews.push(subview);
       this.attachSubview(selector, subview.render(), prepend);
 
-    } else if (subview.model) {
+    } else if (subview.model.get('created_at')) {
       var newDate = subview.model.get('created_at');
       var idx = _.findIndex(selectorSubviews, function (subview) {
         var otherDate = subview.model.get('created_at');

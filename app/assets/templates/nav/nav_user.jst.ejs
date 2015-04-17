@@ -1,0 +1,18 @@
+<%= user.escape('username') %>
+
+<div class='dropdown'>
+  <ul class="dropdown-menu go-right">
+    <li class="profile-link">
+      <a href="#users/<%= Snapt.currentUser.get('id') %>">View Profile</a>
+    </li>
+    <li class="profile-edit">
+      <a href="#users/<%= Snapt.currentUser.get('id') %>">Edit Profile</a>
+    </li>
+    <li class="feed-link">
+      <a href="#feed" >Feed</a>
+    </li>
+    <li>
+      <a class="sign-out-btn" href="javascript:void(0);">Sign Out</a>
+    </li>
+  </ul>
+</div>
