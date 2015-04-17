@@ -17,7 +17,8 @@ Snapt.Models.User = Backbone.Model.extend({
     }
 
     if (resp.profile_pic_pid) {
-      this.profilePic().set({public_id: resp.profile_pic_pid})
+      this.profilePic().set({ public_id: resp.profile_pic_pid})
+      delete resp.profile_pic_pid
     }
 
     return resp;

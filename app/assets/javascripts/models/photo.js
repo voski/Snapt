@@ -55,14 +55,16 @@ Snapt.Models.Photo = Backbone.Model.extend({
 
   cloudinaryUrl: function(options) {
     var params = {
-      crop: 'fill',
+      // crop: 'fill',
     }
+
+    var public_id = this.escape('public_id') || 'default-profile-pic_of1fqb'
 
     jQuery.extend(params, options);
 
     return (
       $.cloudinary.image(
-        this.escape('public_id'),
+        public_id,
         params
       )[0].outerHTML
     )
