@@ -22,14 +22,12 @@ nav li.active-tab {
 
 }
 
-nav li:not(.active-tab){
-  a {
-    transition: font-size .2s ease;
-    text-decoration: none;
+nav li.user-thumb{
+  transition: font-size .2s ease;
+  // text-decoration: none;
     &:hover {
       font-size: 1.5em;
     }
-  }
 }
 
 .go-right {

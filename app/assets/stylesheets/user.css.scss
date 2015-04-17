@@ -3,6 +3,15 @@
   font-size: 1.1em;
 }
 
+nav li.user-thumb{
+  transition: font-size .2s ease;
+  // text-decoration: none;
+    &:hover {
+      font-size: 1.3em;
+      cursor: pointer;
+    }
+}
+
 .user-show  {
   margin: 0 auto;
   text-align: center;
