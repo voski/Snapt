@@ -55,7 +55,6 @@ Snapt.Models.Photo = Backbone.Model.extend({
 
   cloudinaryUrl: function(options) {
     var params = {
-      // crop: 'fill',
     }
 
     var public_id = this.escape('public_id') || 'default-profile-pic_of1fqb'

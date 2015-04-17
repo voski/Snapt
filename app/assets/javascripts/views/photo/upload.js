@@ -1,6 +1,7 @@
 Snapt.uploadWidget = function (options) {
   cloudinary.setCloudName('snapt');
   this.collection = options.collection;
+  this.profilePic = options.profilePic
 
   var presets = {
     upload_preset: 'goImgGo', // default settings for uploads
@@ -38,9 +39,38 @@ Snapt.uploadWidget = function (options) {
     }
   };
 
-  this.widget = cloudinary.createUploadWidget(
-    presets, uploadCallback.bind(this)
-  ),
+  var profilePicCallback = function (error, result) {
+    if (error) {
+      console.log('something went wrong')
+    } else {
+      _(result).each(function (photo) {
+        var newPhoto = new Snapt.Models.Photo({
+          public_id: photo.public_id,
+        });
+
+        // set crop data if there is any
+        if (typeof photo.coordinates['custom'] !== "undefined") {
+          newPhoto.set({coordinates: photo.coordinates['custom'][0]})
+        }
+
+        newPhoto.save({}, {
+          success: function (model, response) {
+            Snapt.currentUser.save({profile_pic_pid: newPhoto.escape('public_id')});
+          }.bind(this)
+        })
+      }.bind(this))
+    }
+  };
+
+  if (!this.profilePic) {
+    this.widget = cloudinary.createUploadWidget(
+      presets, uploadCallback.bind(this)
+    );
+  } else {
+    this.widget = cloudinary.createUploadWidget(
+      presets, profilePicCallback.bind(this)
+    )
+  }
 
   this.open = function () {
     this.widget.open();
