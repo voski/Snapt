@@ -22,13 +22,7 @@ nav li.active-tab {
 
 }
 
-nav li.user-thumb{
-  transition: font-size .2s ease;
-  // text-decoration: none;
-    &:hover {
-      font-size: 1.5em;
-    }
-}
+
 
 .go-right {
   position: relative;
