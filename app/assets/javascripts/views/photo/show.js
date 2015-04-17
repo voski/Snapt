@@ -19,7 +19,7 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
   },
 
   addLikeIndex: function () {
-    var subview = new Snapt.Views.LikeIndex({ photo: this.model })
+    var subview = new Snapt.Views.LikeRoot({ photo: this.model })
     this.addSubview('div.likes', subview)
   },
 
