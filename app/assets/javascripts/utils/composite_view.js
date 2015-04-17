@@ -27,11 +27,14 @@ Backbone.CompositeView = Backbone.View.extend({
   },
 
   attachSubview: function (selector, subview, prepend) {
+    // TODO find correct element location to insert into dom
     if (prepend) {
       this.$(selector).prepend(subview.$el);
     } else {
       this.$(selector).append(subview.$el);
     }
+
+
     // Bind events in case `subview` has previously been removed from
     // DOM.
     subview.delegateEvents();

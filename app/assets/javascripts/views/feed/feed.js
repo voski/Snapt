@@ -4,6 +4,7 @@ Snapt.Views.Feed = Backbone.CompositeView.extend({
   template: JST["feed/feed"],
 
   initialize: function () {
+    this.listenTo(this.collection, 'add', this.render)
     this.listenTo(this.collection, 'add', this.addPhotoView);
     this.listenTo(this.collection, 'remove', this.removePhotoView)
     this.collection.each(function (photo) {
@@ -21,15 +22,18 @@ Snapt.Views.Feed = Backbone.CompositeView.extend({
 
   addPhotoView: function (photo) {
     var subView = new Snapt.Views.PhotoShow({ model: photo })
-    this.addSubview('.feed-photos', subView)
+    this.addSubviewInOrder('.feed-photos', subView)
   },
 
   removePhotoView: function (photo) {
+    var removeThis;
     _(this.subviews('.feed-photos')).each(function (subview) {
       if(subview.model == photo) {
-        this.removeSubview('.feed-photos', subview);
+        removeThis = subview
       }
     }.bind(this));
+
+    this.removeSubview('.feed-photos', removeThis);
   },
 
 

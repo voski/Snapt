@@ -39,12 +39,16 @@
 
 
 body {
-  background-color: #aaa;
+  background-color: #001640;
   padding-top: 70px;
+
 }
+.container {
 
-
-
+}
+.jumbotron {
+  transform: translateX(-14px)
+}
 form ul li{
   list-style: none;
   padding-left: 0;

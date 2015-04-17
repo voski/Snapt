@@ -8,11 +8,16 @@ Snapt.Routers.Router = Backbone.Router.extend({
   routes : {
     '': 'showFeed',
     'feed': 'showFeed',
+    'users/edit': 'editUser',
     'users/:id' : 'showUser'
   },
 
-  setActiveTab: function (resp) {
-    this.activeTab = resp;
+  editUser: function () {
+    var view = new Snapt.Views.EditUser(
+      { model: Snapt.currentUser }
+    )
+
+    this._swapView(view)
   },
 
   showUser: function (id) {
