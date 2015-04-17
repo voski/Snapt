@@ -1,9 +1,18 @@
 Snapt.Views.PhotoTitle = Backbone.CompositeView.extend({
   template: JST['photo/title'],
+  className: 'photo-title',
 
-  className: 'well',
+  initialize: function (options) {
+    // this.$el = options.$el,
+    this.listenTo(this.model, 'sync', this.render)
+  },
 
-  initialize: function (options){
+  events: {
+    "click" : "startEdit"
+  },
+
+  startEdit: function () {
+    console.log('clickidy click click')
   },
 
   render: function () {

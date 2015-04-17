@@ -1,11 +1,6 @@
 Snapt.Views.LikeButton = Backbone.View.extend({
   template: JST['like/button'],
 
-
-  initialize: function (options) {
-    this.photo = options.photo;
-  },
-
   events: {
     'click': 'handleClick'
   },
@@ -23,7 +18,7 @@ Snapt.Views.LikeButton = Backbone.View.extend({
 
   isLikedByUser: function () {
     var result = false;
-    _(this.photo.likes().models).each( function (like) {
+    _(this.model.likes().models).each( function (like) {
       if (like.liker.id === Snapt.currentUser.id) {
         result = true;
       }
@@ -34,7 +29,7 @@ Snapt.Views.LikeButton = Backbone.View.extend({
 
   destroyLike: function () {
     var _like;
-    _(this.photo.likes().models).each(function (like) {
+    _(this.model.likes().models).each(function (like) {
       if (like.liker.id === Snapt.currentUser.id) {
         _like = like
       }
@@ -42,24 +37,24 @@ Snapt.Views.LikeButton = Backbone.View.extend({
 
     _like.destroy({
       success: function () {
-        this.photo.likes().remove(_like)
+        this.model.likes().remove(_like)
         this.$('span').removeClass('liked')
-        this.photo.set({
-          likes_count: this.photo.attributes.likes_count - 1
+        this.model.set({
+          likes_count: this.model.attributes.likes_count - 1
         })
       }.bind(this)
     })
   },
 
   createLike: function () {
-    var like = new Snapt.Models.Like({photo_id: this.photo.id})
+    var like = new Snapt.Models.Like({photo_id: this.model.id})
 
     like.save([],{
       success: function (model, resp) {
         like.liker = Snapt.currentUser
-        this.photo.likes().set(like, { parse: true })
-        this.photo.set({
-          likes_count: this.photo.attributes.likes_count + 1
+        this.model.likes().set(like, { parse: true })
+        this.model.set({
+          likes_count: this.model.attributes.likes_count + 1
         })
         this.$('span').addClass('liked')
       }.bind(this)

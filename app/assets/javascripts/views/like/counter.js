@@ -4,12 +4,11 @@ Snapt.Views.LikeCounter = Backbone.View.extend({
   className: 'label label-snapt label-as-badge',
 
   initialize: function (options) {
-    this.photo = options.photo
-    this.listenTo(this.photo, 'change:likes_count', this.render)
+    this.listenTo(this.model, 'change:likes_count', this.render)
   },
 
   render: function () {
-    var content = this.template({ photo: this.photo })
+    var content = this.template({ photo: this.model })
     this.$el.html(content)
 
     return this;
