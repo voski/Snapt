@@ -50,7 +50,7 @@
 </div>
 <script>
   var loginGuest = function (e) {
-    $('.username').val('guest');
+    $('.username').val("<%= User.guest.username %>");
     $('.password').val('password')
     $('.submit-btn').click();
   }

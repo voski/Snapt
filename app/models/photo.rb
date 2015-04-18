@@ -9,6 +9,7 @@
 #  public_id   :string           not null
 #  title       :text             default("Title"), not null
 #  coordinates :integer          default([]), is an Array
+#  likes_count :integer          default(0)
 #
 
 class Photo < ActiveRecord::Base

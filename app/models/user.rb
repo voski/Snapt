@@ -10,6 +10,8 @@
 #  updated_at      :datetime
 #  email           :string           not null
 #  private         :boolean          default(FALSE), not null
+#  profile_pic_pid :string
+#  guest           :boolean          default(FALSE), not null
 #
 
 class User < ActiveRecord::Base
@@ -82,5 +84,9 @@ class User < ActiveRecord::Base
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
+  end
+
+  def self.guest
+    self.find_by_guest(true)
   end
 end
