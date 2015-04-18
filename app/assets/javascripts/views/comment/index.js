@@ -1,5 +1,5 @@
 Snapt.Views.CommentIndex = Backbone.CompositeView.extend({
-  template: JST['comment/index'],
+  template: JST['comment/comment_index'],
   className: 'well',
   initialize: function (options) {
     this.photo = options.photo,
