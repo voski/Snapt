@@ -3,11 +3,17 @@ Snapt.Views.EditUser = Backbone.CompositeView.extend({
 
   className: 'container user-show jumbotron',
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render)
-    this.addProfilePic()
+    this.listenTo(this.model, 'sync', this.render);
+    this.addProfilePic();
+    this.addUserName();
   },
   events: {
     'click #widget' : 'openWidget',
+  },
+
+  addUserName: function () {
+    var view = new Snapt.Views.UserName({ model: this.model })
+    this.addSubview('div.edit-content', view)
   },
 
   render: function () {
@@ -19,7 +25,7 @@ Snapt.Views.EditUser = Backbone.CompositeView.extend({
 
   addProfilePic: function () {
     var view = new Snapt.Views.ProfilePic({ model: this.model })
-    this.addSubview('div.edit-content', view)
+    this.addSubview('div.profile-pic', view)
   },
 
   addWidget: function () {
