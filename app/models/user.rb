@@ -86,7 +86,4 @@ class User < ActiveRecord::Base
     self.session_token ||= SecureRandom.urlsafe_base64
   end
 
-  def self.guest
-    self.find_by_guest(true)
-  end
 end
