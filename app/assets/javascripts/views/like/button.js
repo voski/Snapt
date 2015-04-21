@@ -5,6 +5,8 @@ Snapt.Views.LikeButton = Backbone.View.extend({
     'click': 'handleClick'
   },
 
+  className: 'input-group-addon like-btn',
+
   handleClick: function () {
     this.isLikedByUser() ? this.destroyLike() : this.createLike()
   },

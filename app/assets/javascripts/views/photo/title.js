@@ -1,6 +1,6 @@
 Snapt.Views.PhotoTitle = Backbone.CompositeView.extend({
   template: JST['photo/title'],
-  className: 'photo-title',
+  className: 'photo-title form-control',
 
   initialize: function (options) {
     // this.$el = options.$el,
