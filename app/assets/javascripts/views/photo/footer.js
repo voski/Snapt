@@ -14,7 +14,10 @@ Snapt.Views.PhotoFooter = Backbone.CompositeView.extend({
       { title: this.$('input').val() },
       { success: function () {
           this.titleView._editing = false;
-        }.bind(this)
+        }.bind(this),
+        error: function (model, resp) {
+          $(e.currentTarget).attr('placeholder', resp.responseText.replace(/\"|\[|\]/g, ""))
+        }
       }
     )
   },
