@@ -11,10 +11,17 @@ Snapt.Views.PhotoTitle = Backbone.CompositeView.extend({
 
   events: {
     "click" : "startEdit",
+    'mouseover' : 'handleCursor'
+  },
+
+  handleCursor: function () {
+    if (!this.model.isAuthor()) {
+      this.$el.css('cursor', 'default')
+    }
   },
 
   startEdit: function () {
-    if (!this._editing) {
+    if (!this._editing && this.model.isAuthor()) {
       this._editing = true;
       this.render();
       this.$('.title-edit').focus();

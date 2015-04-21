@@ -5,8 +5,14 @@ div.title > .well {
 input.title-edit {
   border-style: none;
   text-align: center;
-
+  width: 100%;
     &:focus {
       outline: none;
     }
+}
+
+div.photo-title {
+  &:hover {
+    cursor: pointer;
+  }
 }
