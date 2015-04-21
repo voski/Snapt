@@ -1,3 +1,12 @@
 div.title > .well {
   margin-bottom: 0px
 }
+
+input.title-edit {
+  border-style: none;
+  text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+}

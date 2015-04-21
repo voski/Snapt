@@ -20,6 +20,16 @@ class Api::PhotosController < ApplicationController
     render :index
   end
 
+  def update
+    @photo = Photo.find(params[:id]);
+    if @photo.update_attributes(photo_params)
+      render :show
+    else
+      render json: @photo.errors.full_messages, status: 422
+    end
+
+  end
+
   def destroy
     @photo = Photo.find(params[:id]);
 
@@ -35,6 +45,6 @@ class Api::PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:public_id, coordinates: [] )
+    params.require(:photo).permit(:public_id, :title, coordinates: [])
   end
 end

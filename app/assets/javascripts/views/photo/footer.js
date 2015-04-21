@@ -3,6 +3,22 @@ Snapt.Views.PhotoFooter = Backbone.CompositeView.extend({
 
   tagName: 'form',
 
+  events: {
+    'submit' : 'handleSubmit',
+    'blur input': 'handleSubmit'
+  },
+
+  handleSubmit: function (e) {
+    e.preventDefault();
+    this.model.save(
+      { title: this.$('input').val() },
+      { success: function () {
+          this.titleView._editing = false;
+        }.bind(this)
+      }
+    )
+  },
+
   className: 'photo-footer',
 
   initialize: function (options) {
@@ -30,8 +46,8 @@ Snapt.Views.PhotoFooter = Backbone.CompositeView.extend({
   },
 
   addTitle: function () {
-    var subview = new Snapt.Views.PhotoTitle({ model: this.model, $el: this.$('div.photo-title-hook') })
-    this.addSubview('div.footer-hook', subview);
+    this.titleView = new Snapt.Views.PhotoTitle({ model: this.model, $el: this.$('div.photo-title-hook') })
+    this.addSubview('div.footer-hook', this.titleView);
   },
 
 });
