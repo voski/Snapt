@@ -20,10 +20,10 @@
  *= require title
  *= require_tree .
  */
+$grid-float-breakpoint: 30px;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 
 @viewport{
      zoom: 1.0;
