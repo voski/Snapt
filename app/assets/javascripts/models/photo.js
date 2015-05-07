@@ -11,7 +11,21 @@ Snapt.Models.Photo = Backbone.Model.extend({
       this.likes().set(resp.likes, { parse: true })
       delete resp.likes
     }
+
+    if (resp.author) {
+      this.author().set(resp.author, { parse: true})
+      delete resp.author
+    }
+
     return resp;
+  },
+
+  author: function () {
+    if (!this._author) {
+      this._author = new Snapt.Models.User();
+    }
+
+    return this._author;
   },
 
   likes: function () {

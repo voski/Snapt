@@ -1,4 +1,5 @@
-<div>
+<div class="author-info"></div>
+<div class="snap">
   <%= photo.cloudinaryUrl({
     gravity: "custom",
     crop: 'thumb',
@@ -7,15 +8,11 @@
   }) %>
 </div>
 
-<div class="likes">
+<div class="likes"></div>
 
-</div>
+<div class="title"></div>
 
-<div class="title">
-</div>
-
-<ul class="comments list-group">
-</ul>
+<ul class="comments list-group"></ul>
 
 <% if (photo.isAuthor()) { %>
   <br>

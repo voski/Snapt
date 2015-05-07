@@ -14,8 +14,14 @@ Snapt.Views.PhotoShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.addCommentIndex();
     this.addPhotoFooter();
-
+    debugger
+    this.addAuthorInfo();
   },
+
+  addAuthorInfo: function () {
+    var subview = new Snapt.Views.UserThumb
+  },
+
 
   addPhotoFooter: function () {
     var subview = new Snapt.Views.PhotoFooter({ model: this.model })
