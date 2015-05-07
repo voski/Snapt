@@ -1,5 +1,4 @@
 Photo.create!([
-  {author_id: 12, url: "http://res.cloudinary.com/snapt/image/upload/v1428617217/twilightZone/f3txsaqu2odrmqkv3bek.jpg", public_id: "twilightZone/f3txsaqu2odrmqkv3bek"},
   {author_id: 2, url: "http://res.cloudinary.com/snapt/image/upload/v1428625544/twilightZone/hst3mzihair9dpg5gy8j.jpg", public_id: "twilightZone/hst3mzihair9dpg5gy8j"},
   {author_id: 2, url: "http://res.cloudinary.com/snapt/image/upload/v1428628129/twilightZone/tn9dhbm9dd073jjoqe2f.jpg", public_id: "twilightZone/tn9dhbm9dd073jjoqe2f"},
   {author_id: 2, url: "http://res.cloudinary.com/snapt/image/upload/v1428629407/twilightZone/xm4bcsy370hwyxsmppsh.jpg", public_id: "twilightZone/xm4bcsy370hwyxsmppsh"},
