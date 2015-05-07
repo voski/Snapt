@@ -4,10 +4,15 @@ Snapt.Views.UserThumb = Backbone.CompositeView.extend({
 
   template: JST['user/thumb'],
 
-  render: function () {
-    var content = this.template({ user: this.model })
-    this.$el.html(content)
+  initialize: function () {
+    this.model.fetch();
+    this.listenTo(this.model, 'sync', this.render)
+  },
 
+  render: function () {
+
+    var content = this.template({ user: this.model, photo: this.model.profilePic() })
+    this.$el.html(content)
     return this;
   }
 
