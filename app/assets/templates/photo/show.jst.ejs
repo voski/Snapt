@@ -1,10 +1,4 @@
 <div>
-  <%= photo.get("time_ago") %> ago
-  <br>
-  created at: <%= photo.get("created_at") %>
-  <br>
-  author: <%= photo.get('author_id') %>
-  <br>
   <%= photo.cloudinaryUrl({
     gravity: "custom",
     crop: 'thumb',
