@@ -11,6 +11,8 @@ Snapt.Views.commentShow = Backbone.CompositeView.extend({
     var content = this.template({ comment: this.model });
     this.$el.html(content);
     this.addUserThumb();
+    
+
 
     return this;
   },
