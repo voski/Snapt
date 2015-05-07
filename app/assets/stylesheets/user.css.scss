@@ -2,6 +2,11 @@
   float: left;
   font-size: 1.1em;
   line-height: 33px;
+  height: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 .edit-content {
   float: right;

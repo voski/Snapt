@@ -9,6 +9,17 @@ Snapt.Views.UserThumb = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render)
   },
 
+  events: {
+    'click': 'goToProfile'
+  },
+
+  goToProfile: function () {
+    Backbone.history.navigate(
+      'users/' + this.model.get('id'),
+      {trigger: true}
+    )
+  },
+
   render: function () {
 
     var content = this.template({ user: this.model, photo: this.model.profilePic() })

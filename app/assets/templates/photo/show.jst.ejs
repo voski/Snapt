@@ -1,4 +1,10 @@
-<div class="author-info"></div>
+<div class="spacer">
+  <div class="author-info"></div>
+  <span class="badge photo-time-ago">
+    <%= photo.escape('time_ago') %>
+  </span>
+
+</div>
 <div class="snap">
   <%= photo.cloudinaryUrl({
     gravity: "custom",

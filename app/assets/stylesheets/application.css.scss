@@ -30,6 +30,17 @@ $grid-float-breakpoint: 30px;
      width: device-width;
 }
 
+div.spacer {
+  display:block;
+  width: 100%;
+  height: 50px;
+}
+
+span.photo-time-ago{
+  float: right;
+  margin-top: 10px;
+}
+
 .label-as-badge {
     border-radius: 1em;
 }
@@ -76,6 +87,10 @@ img {
   background-image: image-url("spinner.gif");
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+div.author-info {
+  display: block;
 }
 
 .list-group-item img {
